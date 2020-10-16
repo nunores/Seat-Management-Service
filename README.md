@@ -65,7 +65,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![alt text][ESOF.png "Use Case Diagram"]
+![Use Case Diagram][https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/ESOF.png]
 
 Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
 
