@@ -26,10 +26,10 @@ Please contact us!
 
 Thank you!
 
-Inês Quarteu (up201806279)
-Francisca Almeida (up201806398)
-João Gonçalves (up201806796)
-Nuno Resende (up201806825)
+Inês Quarteu (up201806279) <br/>
+Francisca Almeida (up201806398) <br/>
+João Gonçalves (up201806796) <br/>
+Nuno Resende (up201806825) <br/>
 
 ---
 
