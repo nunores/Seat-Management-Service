@@ -70,7 +70,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/ESOF.png)
 
-Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
+<!-- Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
 
 Give each use case a concise, results-oriented name. Use cases should reflect the tasks the user needs to be able to accomplish using the system. Include an action verb and a noun. 
 
@@ -82,15 +82,26 @@ Briefly describe each use case mentioning the following:
 
 * **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
-
+ -->
+ 
 ### User stories
-This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
+As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.
 
-For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
+As an user, I want to be able to choose a conference, so that I can see the seats for each event.
 
-A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
+As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
 
-*As a < user role >, I want < goal > so that < reason >.*
+As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
+
+As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
+
+As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
+
+As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
+
+As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
+
+As an user, I want to be able to register, so that I can access the application.
 
 
 **INVEST in good user stories**. 
