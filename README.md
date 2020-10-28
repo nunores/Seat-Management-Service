@@ -85,26 +85,27 @@ Briefly describe each use case mentioning the following:
  -->
  
 ### User stories
-As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.
+1. As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.
 
-As an user, I want to be able to choose a conference, so that I can see the seats for each event.
+2. As an user, I want to be able to choose a conference, so that I can see the seats for each event.
 
-As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
+3. As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
 
-As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
+4. As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
 
-As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
+5. As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
 
-As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
+6. As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
 
-As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
+7. As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
 
-As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
+8. As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
 
-As an user, I want to be able to register, so that I can access the application.
+9. As an user, I want to be able to register, so that I can access the application.
 
+10. As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
 
-**INVEST in good user stories**. 
+**INVEST in good user stories**.
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
 
 **User interface mockups**.
@@ -114,6 +115,33 @@ After the user story text, you should add a draft of the corresponding user inte
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
 **Value and effort**.
+
+#### Value
+
+Must-Haves:
+1, 2, 3, 9
+
+Should-Haves:
+4, 5, 8
+
+Could-Haves:
+6, 7, 10
+
+#### Effort
+
+XL:
+
+L:
+3, 5, 6
+
+M:
+1, 4, 7, 10
+
+S:
+2, 8, 9
+
+XS:
+
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
 
 ### Domain model
@@ -123,6 +151,7 @@ To better understand the context of the software system, it is very useful to ha
 ---
 
 ## Architecture and Design
+
 The architecture of a software system encompasses the set of key decisions about its overall organization. 
 
 A well written architecture document is brief but reduces the amount of time it takes new programmers to a project to understand the code to feel able to make modifications and enhancements.
@@ -131,7 +160,12 @@ To document the architecture requires describing the decomposition of the system
 
 In this section you should start by briefly describing the overall components of the project and their interrelations. You should also describe how you solved typical problems you may have encountered, pointing to well-known architectural and design patterns, if applicable.
 
+
 ### Logical architecture
+
+![Logical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/Logic.png)
+
+
 The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 
 It can be beneficial to present the system both in a horizontal or vertical decomposition:
@@ -139,6 +173,10 @@ It can be beneficial to present the system both in a horizontal or vertical deco
 * vertical decomposition can define a hierarchy of subsystems that cover all layers of implementation.
 
 ### Physical architecture
+
+![Physical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/Physical.png)
+
+
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
 
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
