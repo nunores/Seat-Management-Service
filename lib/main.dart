@@ -9,21 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Seat Management Serv i',
+      title: 'Seat Management Service',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Seat Management Service'),
@@ -43,28 +31,53 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    var loginButton = Container(
+      child: FlatButton(
+        color: Color(0xFFEE6C4D),
+        textColor: Colors.white,
+        disabledColor: Colors.grey,
+        disabledTextColor: Colors.black,
+        padding: EdgeInsets.all(8.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(150)),
+        ),
+        onPressed: () {
+          /*...*/
+        },
+        child: Text(
+          "Log In",
+          style: TextStyle(
+            color: Colors.white,
+          )
+        ),
+      ),
+      height: 50,
+      width: 700,
+      margin: EdgeInsets.symmetric(horizontal: 70),
+    );
+
     var passwordField = Container(
       child: TextField(
         obscureText: true,
         decoration: InputDecoration(
           hintText: 'Password',
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF3D5A80), width: 2),
+            borderSide: BorderSide(color: Colors.white, width: 2),
             borderRadius: BorderRadius.all(Radius.circular(150)),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFF3D5A80),
+              color: Colors.white,
               width: 2,
             ),
             borderRadius: BorderRadius.all(Radius.circular(150)),
           ),
           filled: true,
-          fillColor: Color(0xFFE0FBFC),
+          fillColor: Colors.white,
         ),
       ),
-      margin: EdgeInsets.symmetric(horizontal: 50),
-      padding: EdgeInsets.only(top: 30),
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      height: 50,
     );
 
     var usernameField = Container(
@@ -73,24 +86,26 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: InputDecoration(
           hintText: 'Username',
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF3D5A80), width: 2),
+            borderSide: BorderSide(color: Colors.white, width: 2),
             borderRadius: BorderRadius.all(Radius.circular(150)),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFF3D5A80),
+              color: Colors.white,
               width: 2,
             ),
             borderRadius: BorderRadius.all(Radius.circular(150)),
           ),
           filled: true,
-          fillColor: Color(0xFFE0FBFC),
+          fillColor: Colors.white,
         ),
       ),
-      margin: EdgeInsets.symmetric(horizontal: 50),
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      height: 50,
     );
 
     return Scaffold(
+      backgroundColor: Color(0xFF98C1D9),
       appBar: AppBar(
         backgroundColor: Color(0xFF293241),
         title: Row(
@@ -112,7 +127,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             usernameField,
+            SizedBox.fromSize(
+              size: Size.fromHeight(30),
+            ),
             passwordField,
+            SizedBox.fromSize(
+              size: Size.fromHeight(30),
+            ),
+            loginButton,
           ],
         ),
       ),

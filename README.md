@@ -86,24 +86,72 @@ Briefly describe each use case mentioning the following:
  
 ### User stories
 1. As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.
+Value: Must-Have
+Effort: M
+Acceptance Tests: 
 
-2. As an user, I want to be able to choose a conference, so that I can see the seats for each event.
+* **Given** that I am an user and I want to check the seat availability of a conference.
+  **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
 
-3. As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
+2. As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
+Value: Must-Have
+Effort: L
+Acceptance Tests: 
 
-4. As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
 
-5. As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
+3. As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
+Value: Should-Have
+Effort: M
+Acceptance Tests: 
 
-6. As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
 
-7. As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
+4. As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
+Value: Should-Have
+Effort: L
+Acceptance Tests: 
 
-8. As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
+5. As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
+Value: Could-Have
+Effort: L
+Acceptance Tests:
 
-9. As an user, I want to be able to register, so that I can access the application.
+6. As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
+Value: Could-Have
+Effort: M
+Acceptance Tests:
 
-10. As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
+7. As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
+Value: Should-Have
+Effort: S
+Acceptance Tests:
+
+8. As an user, I want to be able to register and log in, so that I can access the application.
+Value: Must-Have
+Effort: S
+Acceptance Tests:
+* **Given** that I am an user, I am prompted to log in.
+  **When** I don't have an account and press the "register" button, **then** I should go to the register page.
+
+* **Given** that I am an user, I am prompted to log in.
+  **When** I already have a valid account, **then** I should go to the home page.
+  
+* **Given** that I am an user, and I want to log in.
+  **When** I input invalid data, **then** I should be warned with a message of "Invalid Information".
+
+* **Given** that I am an user, and I want to register.
+  **When** I input valid data, **then** I should go to the home page.
+
+* **Given** that I am an user, and I am prompted to register.
+  **When** I already have an account and press the "login" button, **then** I should go to the login page.
+
+* **Given** that I am an user, and I want to register.
+  **When** I input invalid data, **then** I should be warned with a message of "Invalid Information".
+
+
+9. As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
+Value: Could-Have
+Effort: M
+Acceptance Tests:
 
 **INVEST in good user stories**.
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
@@ -115,34 +163,6 @@ After the user story text, you should add a draft of the corresponding user inte
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
 **Value and effort**.
-
-#### Value
-
-Must-Haves:
-1, 2, 3, 9
-
-Should-Haves:
-4, 5, 8
-
-Could-Haves:
-6, 7, 10
-
-#### Effort
-
-XL:
-
-L:
-3, 5, 6
-
-M:
-1, 4, 7, 10
-
-S:
-2, 8, 9
-
-XS:
-
-At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
 
 ### Domain model
 
