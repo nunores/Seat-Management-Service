@@ -86,12 +86,16 @@ Briefly describe each use case mentioning the following:
  
 ### User stories
 1. As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.
+
 Value: Must-Have
+
 Effort: M
+
 Acceptance Tests: 
 
-* **Given** that I am an user and I want to check the seat availability of a conference.
-  **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
+**Given** that I am an user and I want to check the seat availability of a conference.
+
+**When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
 
 2. As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
 Value: Must-Have
