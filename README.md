@@ -85,50 +85,65 @@ Briefly describe each use case mentioning the following:
  -->
  
 ### User stories
-1.<p> As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
-Value: Must-Have<br>
-Effort: M<br>
-Acceptance Tests:<br>
+<p> 
+ 
+**1.** As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
+**Value:** Must-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:**<br>
 
 * **Given** that I am an user and I want to check the seat availability of a conference.
-* **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.</p>
-
-2. As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
-Value: Must-Have
-Effort: L
-Acceptance Tests: 
-
-
-3. As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
-Value: Should-Have
-Effort: M
-Acceptance Tests: 
-
-
-4. As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
-Value: Should-Have
-Effort: L
-Acceptance Tests: 
-
-5. As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
-Value: Could-Have
-Effort: L
-Acceptance Tests:
-
-6. As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
-Value: Could-Have
-Effort: M
-Acceptance Tests:
-
-7. As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
-Value: Should-Have
-Effort: S
-Acceptance Tests:
-
-8. As an user, I want to be able to register and log in, so that I can access the application.
-Value: Must-Have
-Effort: S
-Acceptance Tests:
+**When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
+</p>
+<p>
+ 
+**2.** As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.<br>
+**Value:** Must-Have<br>
+**Effort:** L<br>
+**Acceptance Tests:** <br>
+</p>
+<p>
+ 
+**3.** As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.<br>
+**Value:** Should-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:** <br>
+</p>
+<p>
+ 
+**4.** As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
+**Value:** Should-Have<br>
+**Effort:** L<br>
+**Acceptance Tests:** <br>
+</p>
+<p>
+ 
+**5.** As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.<br>
+**Value:** Could-Have<br>
+**Effort:** L<br>
+**Acceptance Tests:**<br>
+</p>
+<p>
+ 
+**6.** As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.<br>
+**Value:** Could-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:**<br>
+</p>
+<p>
+ 
+**7.** As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.<br>
+**Value:** Should-Have<br>
+**Effort:** S<br>
+**Acceptance Tests:**<br>
+</p>
+<p>
+ 
+ **8.** As an user, I want to be able to register and log in, so that I can access the application.<br>
+**Value:** Must-Have<br>
+**Effort:** S<br>
+**Acceptance Tests**:<br>
+ 
 * **Given** that I am an user, I am prompted to log in.
   **When** I don't have an account and press the "register" button, **then** I should go to the register page.
 
@@ -146,13 +161,14 @@ Acceptance Tests:
 
 * **Given** that I am an user, and I want to register.
   **When** I input invalid data, **then** I should be warned with a message of "Invalid Information".
-
-
-9. As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
-Value: Could-Have
-Effort: M
-Acceptance Tests:
-
+</p>
+<p>
+ 
+**9.** As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
+**Value:** Could-Have
+**Effort:** M
+**Acceptance Tests:**
+</p>
 **INVEST in good user stories**.
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
 
