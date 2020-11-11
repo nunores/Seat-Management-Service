@@ -95,7 +95,9 @@ Briefly describe each use case mentioning the following:
 * **Given** that I am an user and I want to check the seat availability of a conference.
 **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
 
-**User interface mockups:** ![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_4.png)
+**User interface mockups:** <br>
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_4.png)
 </p>
 <p>
  
