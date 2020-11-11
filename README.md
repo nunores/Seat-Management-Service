@@ -52,19 +52,22 @@ To learn more about how to write a good product vision, please see also:
 
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
+
+Nowadays everyone is afraid of attending conferences because we don't know who is sitting beside us. SMS has the soluction for you. Our app can reserve your seat and immediately make your seat unavailable. This way it's possible to keep a secure distance between all participants and confortably watch the session.
+
+<!--Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
 Take a look at the following links to learn some techniques:
 * [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
 * [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
 * [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
-
+-->
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
+<!--In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
+Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.-->
 
 ### Use case diagram 
 
@@ -110,7 +113,7 @@ Briefly describe each use case mentioning the following:
 **When** I select a seat that is available, **then** I should be shown a button to make a reservation.
 
 * **Given** that I am an user and I want to reserve a seat.
-**When** select the button to make a reservation, **then** the seat I reserved must be shown as non-available.
+**When** select the button to make a reservation, **then** the seat I reserved must be shown as unavailable.
 
 * **Given** that I am an user and I want to reserve a seat.
 **When** I select a seat that is not available, **then** nothing will happen.
@@ -125,13 +128,19 @@ Briefly describe each use case mentioning the following:
 **Value:** Should-Have<br>
 **Effort:** M<br>
 **Acceptance Tests:** <br>
+
+* **Given** that I am the administration and I want to know which seat are occupied in real time.
+**When** a user checks in, **then** I want to see that seat as occupied.
 </p>
 <p>
  
-**4.** As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
+**4.** As an atendee, I want to be able to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
 **Value:** Should-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:** <br>
+
+* **Given** that I am an user and I want to cancel a reservation.
+**When** I select the button to cancel a reservation, **then** the seat previously shown as unavailable is available again.
 </p>
 <p>
  
