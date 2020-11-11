@@ -85,7 +85,7 @@ Briefly describe each use case mentioning the following:
  -->
  
 ### User stories
-<p>1. As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
+1.<p> As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
 Value: Must-Have<br>
 Effort: M<br>
 Acceptance Tests:<br>
