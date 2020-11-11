@@ -94,6 +94,8 @@ Briefly describe each use case mentioning the following:
 
 * **Given** that I am an user and I want to check the seat availability of a conference.
 **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
+
+**User interface mockups:** ![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/Google Pixel 4, 4XL – 4.png)
 </p>
 <p>
  
@@ -164,10 +166,10 @@ Briefly describe each use case mentioning the following:
 </p>
 <p>
  
-**9.** As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
-**Value:** Could-Have
-**Effort:** M
-**Acceptance Tests:**
+**9.** As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.<br>
+**Value:** Could-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:**<br>
 </p>
 **INVEST in good user stories**.
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
