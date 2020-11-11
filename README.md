@@ -199,6 +199,9 @@ Briefly describe each use case mentioning the following:
 **Value:** Could-Have<br>
 **Effort:** M<br>
 **Acceptance Tests:**<br>
+
+* **Given** that I am an user, and I want to know the seat I intend to sit on has been cleaned.
+  **When** the administration has cleaned the seat, **then** I should receive a notification warning me that I can go sit.
 </p>
 
 <!-- **INVEST in good user stories**.
