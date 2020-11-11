@@ -105,6 +105,19 @@ Briefly describe each use case mentioning the following:
 **Value:** Must-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:** <br>
+
+* **Given** that I am an user and I want to reserve a seat.
+**When** I select a seat that is available, **then** I should be shown a button to make a reservation.
+
+* **Given** that I am an user and I want to reserve a seat.
+**When** select the button to make a reservation, **then** the seat I reserved must be shown as non-available.
+
+* **Given** that I am an user and I want to reserve a seat.
+**When** I select a seat that is not available, **then** nothing will happen.
+
+**User interface mockups:** <br>
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_5.png)
 </p>
 <p>
  
@@ -165,6 +178,11 @@ Briefly describe each use case mentioning the following:
 
 * **Given** that I am an user, and I want to register.
   **When** I input invalid data, **then** I should be warned with a message of "Invalid Information".
+
+**User interface mockups:** <br>
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_1.png)
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_2.png)
 </p>
 <p>
  
