@@ -68,7 +68,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/ESOF.png)
+![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.png)
 
 <!-- Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
 
@@ -183,7 +183,7 @@ In this section you should start by briefly describing the overall components of
 
 ### Logical architecture
 
-![Logical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/Logic.png)
+![Logical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Logic.png)
 
 
 The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
@@ -194,7 +194,7 @@ It can be beneficial to present the system both in a horizontal or vertical deco
 
 ### Physical architecture
 
-![Physical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/Physical.png)
+![Physical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Physical.png)
 
 
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.

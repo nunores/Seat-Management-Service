@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'register.dart';
+import 'main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +33,34 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    var register = Column(
+      children: [
+        Text(
+          "Don't have an account yet?",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 15,
+          ),
+        ),
+        FlatButton(
+          child: Text(
+            "Register Here",
+            style: TextStyle(
+              color: Colors.lightBlue[900],
+              fontSize: 15,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => RegisterRoute()),
+            );
+          },
+        ),
+      ],
+    );
+
     var loginButton = Container(
       child: FlatButton(
         color: Color(0xFFEE6C4D),
@@ -42,13 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
-          /*...*/
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MainPage()),
+          );
         },
         child: Text(
           "Log In",
-          style: TextStyle(
-            color: Colors.white,
-          )
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
       height: 50,
@@ -106,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       backgroundColor: Color(0xFF98C1D9),
-      appBar: AppBar(
+      /*appBar: AppBar(
         backgroundColor: Color(0xFF293241),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -121,11 +152,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
+      ),*/
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox.fromSize(
+              size: Size.fromHeight(30),
+            ),
             usernameField,
             SizedBox.fromSize(
               size: Size.fromHeight(30),
@@ -135,6 +169,10 @@ class _MyHomePageState extends State<MyHomePage> {
               size: Size.fromHeight(30),
             ),
             loginButton,
+            SizedBox.fromSize(
+              size: Size.fromHeight(10),
+            ),
+            register,
           ],
         ),
       ),
