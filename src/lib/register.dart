@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
+import 'main.dart';
 
 class RegisterRoute extends StatelessWidget {
   @override
