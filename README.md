@@ -52,19 +52,22 @@ To learn more about how to write a good product vision, please see also:
 
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
+
+Nowadays everyone is afraid of attending conferences because we don't know who is sitting beside us. SMS has the soluction for you. Our app can reserve your seat and immediately make your seat unavailable. This way it's possible to keep a secure distance between all participants and confortably watch the session.
+
+<!--Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
 Take a look at the following links to learn some techniques:
 * [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
 * [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
 * [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
-
+-->
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
+<!--In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
+Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.-->
 
 ### Use case diagram 
 
@@ -85,50 +88,88 @@ Briefly describe each use case mentioning the following:
  -->
  
 ### User stories
-1. As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.
-Value: Must-Have
-Effort: M
-Acceptance Tests: 
+<p> 
+ 
+**1.** As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
+**Value:** Must-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:**<br>
 
 * **Given** that I am an user and I want to check the seat availability of a conference.
-  **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
+**When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
 
-2. As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.
-Value: Must-Have
-Effort: L
-Acceptance Tests: 
+**User interface mockups:** <br>
 
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_4.png)
+</p>
+<p>
+ 
+**2.** As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.<br>
+**Value:** Must-Have<br>
+**Effort:** L<br>
+**Acceptance Tests:** <br>
 
-3. As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.
-Value: Should-Have
-Effort: M
-Acceptance Tests: 
+* **Given** that I am an user and I want to reserve a seat.
+**When** I select a seat that is available, **then** I should be shown a button to make a reservation.
 
+* **Given** that I am an user and I want to reserve a seat.
+**When** select the button to make a reservation, **then** the seat I reserved must be shown as unavailable.
 
-4. As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.
-Value: Should-Have
-Effort: L
-Acceptance Tests: 
+* **Given** that I am an user and I want to reserve a seat.
+**When** I select a seat that is not available, **then** nothing will happen.
 
-5. As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.
-Value: Could-Have
-Effort: L
-Acceptance Tests:
+**User interface mockups:** <br>
 
-6. As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.
-Value: Could-Have
-Effort: M
-Acceptance Tests:
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_5.png)
+</p>
+<p>
+ 
+**3.** As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.<br>
+**Value:** Should-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:** <br>
 
-7. As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.
-Value: Should-Have
-Effort: S
-Acceptance Tests:
+* **Given** that I am the administration and I want to know which seat are occupied in real time.
+**When** a user checks in, **then** I want to see that seat as occupied.
+</p>
+<p>
+ 
+**4.** As an atendee, I want to be able to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
+**Value:** Should-Have<br>
+**Effort:** L<br>
+**Acceptance Tests:** <br>
 
-8. As an user, I want to be able to register and log in, so that I can access the application.
-Value: Must-Have
-Effort: S
-Acceptance Tests:
+* **Given** that I am an user and I want to cancel a reservation.
+**When** I select the button to cancel a reservation, **then** the seat previously shown as unavailable is available again.
+</p>
+<p>
+ 
+**5.** As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.<br>
+**Value:** Could-Have<br>
+**Effort:** L<br>
+**Acceptance Tests:**<br>
+</p>
+<p>
+ 
+**6.** As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.<br>
+**Value:** Could-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:**<br>
+</p>
+<p>
+ 
+**7.** As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.<br>
+**Value:** Should-Have<br>
+**Effort:** S<br>
+**Acceptance Tests:**<br>
+</p>
+<p>
+ 
+ **8.** As an user, I want to be able to register and log in, so that I can access the application.<br>
+**Value:** Must-Have<br>
+**Effort:** S<br>
+**Acceptance Tests**:<br>
+ 
 * **Given** that I am an user, I am prompted to log in.
   **When** I don't have an account and press the "register" button, **then** I should go to the register page.
 
@@ -147,22 +188,32 @@ Acceptance Tests:
 * **Given** that I am an user, and I want to register.
   **When** I input invalid data, **then** I should be warned with a message of "Invalid Information".
 
+**User interface mockups:** <br>
 
-9. As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.
-Value: Could-Have
-Effort: M
-Acceptance Tests:
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_1.png)
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_2.png)
+</p>
+<p>
+ 
+**9.** As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.<br>
+**Value:** Could-Have<br>
+**Effort:** M<br>
+**Acceptance Tests:**<br>
 
-**INVEST in good user stories**.
-You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
+* **Given** that I am an user, and I want to know the seat I intend to sit on has been cleaned.
+  **When** the administration has cleaned the seat, **then** I should receive a notification warning me that I can go sit.
+</p>
 
-**User interface mockups**.
-After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable.
+<!-- **INVEST in good user stories**.
+You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
+
+**User interface mockups**
+After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable
 
 **Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
-**Value and effort**.
+**Value and effort**.-->
 
 ### Domain model
 
