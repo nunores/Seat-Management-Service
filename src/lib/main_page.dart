@@ -42,6 +42,10 @@ class Palestra {
   Widget draw() {
     return Column(
       children: [
+        /*
+        Fazer Container clickable
+        container(child: Material(child: Inkwell(child: Palestra)))*/
+
         Container(
             child: Column(
               children: <Widget>[
@@ -196,9 +200,11 @@ class Date {
 
 class MainPage extends StatelessWidget {
   String search;
+  int index;
 
-  MainPage(String search) {
+  MainPage(String search, int index) {
     this.search = search;
+    this.index = index;
   }
 
   @override
@@ -243,11 +249,92 @@ class MainPage extends StatelessWidget {
 
     final _searchBarController = TextEditingController();
 
-/*     void dispose() {
-      _searchBarController.dispose();
-      super.dispose();
-    } */
+    Color bottomBarItemColor0;
+    Color bottomBarItemColor1;
 
+    if (this.index == 0) {
+      bottomBarItemColor0 = Colors.red;
+      bottomBarItemColor1 = Colors.blue;
+    } else {
+      bottomBarItemColor1 = Colors.red;
+      bottomBarItemColor0 = Colors.blue;
+    }
+
+    Widget bodyBuilder() {
+      if (this.index == 0) {
+        return ListView(
+          children: <Widget>[
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              child: Row(
+                children: [
+                  Container(
+                    child: TextField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'Search...',
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(150)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(150)),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                      ),
+                      controller: _searchBarController,
+                      onSubmitted: (_searchBarController) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  MainPage(_searchBarController, 0)),
+                        );
+                      },
+                    ),
+                    height: 50,
+                    width: 350,
+                  ),
+                  Container(
+                    child: IconButton(
+                      icon: Icon(
+                        IconData(59828, fontFamily: 'MaterialIcons'),
+                        size: 40,
+                      ),
+                      color: Colors.white,
+                      tooltip: 'Search',
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  MainPage(_searchBarController.text, 0)),
+                        );
+                      },
+                    ),
+                    margin: EdgeInsets.all(1),
+                  ),
+                ],
+              ),
+              margin: EdgeInsets.only(left: 20, right: 1),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Column(
+              children: palestras.map((palestra) => palestra.draw()).toList(),
+            )
+          ],
+        );
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -267,76 +354,39 @@ class MainPage extends StatelessWidget {
         ),
       ),
       backgroundColor: Color(0xFF98C1D9),
-      body: ListView(
-        children: <Widget>[
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: Row(
-              children: [
-                Container(
-                  child: TextField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: 'Search...',
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 2),
-                        borderRadius: BorderRadius.all(Radius.circular(150)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(150)),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                    controller: _searchBarController,
-                    onSubmitted: (_searchBarController) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                MainPage(_searchBarController)),
-                      );
-                    },
-                  ),
-                  height: 50,
-                  width: 350,
-                ),
-                Container(
-                  child: IconButton(
-                    icon: Icon(
-                      IconData(59828, fontFamily: 'MaterialIcons'),
-                      size: 40,
-                    ),
-                    color: Colors.white,
-                    tooltip: 'Search',
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                MainPage(_searchBarController.text)),
-                      );
-                    },
-                  ),
-                  margin: EdgeInsets.all(1),
-                ),
-              ],
-            ),
-            margin: EdgeInsets.only(left: 20, right: 1),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Column(
-            children: palestras.map((palestra) => palestra.draw()).toList(),
-          )
-        ],
+      body: bodyBuilder(),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            Spacer(),
+            IconButton(
+                icon: Icon(IconData(59147, fontFamily: 'MaterialIcons'),
+                    color: bottomBarItemColor0),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            MainPage(_searchBarController.text, 0)),
+                  );
+                }),
+            Spacer(),
+            IconButton(
+                icon: Icon(
+                    IconData(59171,
+                        fontFamily: 'MaterialIcons', matchTextDirection: true),
+                    color: bottomBarItemColor1),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            MainPage(_searchBarController.text, 1)),
+                  );
+                }),
+            Spacer(),
+          ],
+        ),
       ),
     );
   }
