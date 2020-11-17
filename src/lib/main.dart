@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'register.dart';
-import 'main_page.dart';
+import 'Controller/register.dart';
+//import 'main_page.dart';
+import 'Controller/main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -73,9 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         onPressed: () {
           Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => MainPage("", 0)),
-          );
+              context, MaterialPageRoute(builder: (context) => MainPage()));
         },
         child: Text(
           "Log In",
