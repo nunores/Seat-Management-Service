@@ -63,7 +63,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               },
             ),
             height: 50,
-            width: 350,
+            width: 300,
           ),
           Container(
             child: IconButton(
