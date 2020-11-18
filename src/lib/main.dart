@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Controller/register.dart';
-//import 'main_page.dart';
 import 'Controller/main_page.dart';
+import 'database.dart';
+import 'Model/user.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,11 +28,66 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+  final Database database = new Database();
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState(database);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Database database;
+
+  _MyHomePageState(this.database);
+
+  TextEditingController usernameController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+
+  bool verifyUser(String user, String pass) {
+    for (var i = 0; i < database.getUsers().length; i++) {
+      if ((database.getUsers()[i].getUser() == user) &&
+          (database.getUsers()[i].getPass() == pass)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  User findUser(String user, String pass) {
+    for (var i = 0; i < database.getUsers().length; i++) {
+      if ((database.getUsers()[i].getUser() == user) &&
+          (database.getUsers()[i].getPass() == pass)) {
+        return database.getUsers()[i];
+      }
+    }
+    return null;
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Invalid Input"),
+      content: Text("The credentials you input are not valid"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var register = Column(
@@ -55,7 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => RegisterRoute()),
+              MaterialPageRoute(
+                  builder: (context) => RegisterRoute(this.database)),
             );
           },
         ),
@@ -73,8 +130,18 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MainPage()));
+          if (verifyUser(
+              this.usernameController.text, this.passwordController.text)) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MainPage(
+                        findUser(this.usernameController.text,
+                            this.passwordController.text),
+                        this.database)));
+          } else {
+            showAlertDialog(context);
+          }
         },
         child: Text(
           "Log In",
@@ -88,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var passwordField = Container(
       child: TextField(
+        controller: passwordController,
         obscureText: true,
         decoration: InputDecoration(
           hintText: 'Password',
@@ -112,6 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var usernameField = Container(
       child: TextField(
+        controller: usernameController,
         obscureText: false,
         decoration: InputDecoration(
           hintText: 'Username',
@@ -136,22 +205,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       backgroundColor: Color(0xFF98C1D9),
-      /*appBar: AppBar(
-        backgroundColor: Color(0xFF293241),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              child: Image.asset(
-                'images/logo.png',
-                fit: BoxFit.contain,
-                height: 40,
-              ),
-              margin: EdgeInsets.only(left: 10),
-            ),
-          ],
-        ),
-      ),*/
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

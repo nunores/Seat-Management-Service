@@ -5,8 +5,9 @@ import '../Model/user.dart';
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
   final User _user;
+  final int _index;
 
-  PalestraView(this._palestra, this._user);
+  PalestraView(this._palestra, this._user, this._index);
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +131,9 @@ class PalestraView extends StatelessWidget {
               width: 1000,
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
-            this._user.addPalestraGoing(this._palestra);
+            if (this._index == 0) {
+              this._user.addPalestraGoing(this._palestra);
+            }
           },
         ),
         SizedBox(

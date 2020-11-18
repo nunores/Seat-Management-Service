@@ -15,4 +15,16 @@ class User {
   bool isGoing(Palestra palestra) {
     return palestrasGoing.contains(palestra);
   }
+
+  String getUser() {
+    return this.username;
+  }
+
+  String getPass() {
+    return this.password;
+  }
+
+  List<Palestra> getPalestrasGoing() {
+    return palestrasGoing;
+  }
 }

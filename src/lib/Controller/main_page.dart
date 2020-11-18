@@ -6,28 +6,37 @@ import '../Model/user.dart';
 class MainPage extends StatelessWidget {
   static const String _title = 'Main Page';
 
+  final User user;
+  final Database database;
+
+  MainPage(this.user, this.database);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: MyStatefulWidget(),
+      home: MyStatefulWidget(this.user, this.database),
     );
   }
 }
 
 class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+  final User user;
+  final Database database;
+
+  MyStatefulWidget(this.user, this.database, {Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _MyStatefulWidgetState createState() =>
+      _MyStatefulWidgetState(this.user, this.database);
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   String text;
-  Database database = new Database();
-  User user = new User("abc", "password");
+  Database database;
+  User user;
 
-  _MyStatefulWidgetState({this.text = ""});
+  _MyStatefulWidgetState(this.user, this.database, {this.text = ""});
 
   int _selectedIndex = 0;
 
@@ -60,6 +69,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onSubmitted: (_searchBarController) {
                 this.text = this._searchBarController.text;
                 setState(() {
+                  user = this.user;
                   this._searchBarController.text;
                 });
               },
@@ -78,6 +88,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onPressed: () {
                 this.text = this._searchBarController.text;
                 setState(() {
+                  user = this.user;
                   this._searchBarController.text;
                 });
               },
@@ -103,15 +114,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           Column(
             children: database
-                .getPalestras(this.text, user)
+                .getPalestras(this.text, this.user)
                 .map((palestra) =>
-                    new PalestraView(palestra, user).build(context))
+                    new PalestraView(palestra, this.user, this._selectedIndex)
+                        .build(context))
                 .toList(),
           )
         ],
       ),
-      Text(
-        'Coming soon...',
+      ListView(
+        children: <Widget>[
+          SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Column(
+            children: database
+                .getReserved(this.user)
+                .map((palestra) =>
+                    new PalestraView(palestra, this.user, this._selectedIndex)
+                        .build(context))
+                .toList(),
+          )
+        ],
       ),
     ];
   }
@@ -134,9 +161,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               child: Image.asset(
                 'images/logo.png',
                 fit: BoxFit.contain,
-                height: 40,
+                height: 55,
               ),
-              margin: EdgeInsets.only(left: 10),
+              margin: EdgeInsets.all(10),
             ),
           ],
         ),
@@ -162,7 +189,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFF293241),
+        selectedItemColor: Color(0xFFEE6C4D),
         onTap: _onItemTapped,
       ),
     );
