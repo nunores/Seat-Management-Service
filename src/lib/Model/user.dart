@@ -8,7 +8,11 @@ class User {
 
   User(this.username, this.password);
 
-  addPalestra(Palestra palestra) {
+  void addPalestraGoing(Palestra palestra) {
     this.palestrasGoing.add(palestra);
+  }
+
+  bool isGoing(Palestra palestra) {
+    return palestrasGoing.contains(palestra);
   }
 }

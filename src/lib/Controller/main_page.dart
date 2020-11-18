@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../View/palestra_view.dart';
 import '../database.dart';
+import '../Model/user.dart';
 
 class MainPage extends StatelessWidget {
   static const String _title = 'Main Page';
@@ -24,6 +25,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   String text;
   Database database = new Database();
+  User user = new User("abc", "password");
 
   _MyStatefulWidgetState({this.text = ""});
 
@@ -101,8 +103,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           Column(
             children: database
-                .getPalestras(this.text)
-                .map((palestra) => new PalestraView(palestra).build(context))
+                .getPalestras(this.text, user)
+                .map((palestra) =>
+                    new PalestraView(palestra, user).build(context))
                 .toList(),
           )
         ],
