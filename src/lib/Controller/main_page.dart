@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Model/palestra.dart';
-import '../Model/date.dart';
 import '../View/palestra_view.dart';
+import '../database.dart';
 
 class MainPage extends StatelessWidget {
   static const String _title = 'Main Page';
@@ -24,57 +23,13 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   String text;
+  Database database = new Database();
 
   _MyStatefulWidgetState({this.text = ""});
 
   int _selectedIndex = 0;
 
   final _searchBarController = TextEditingController();
-
-  void removePalestras(List<Palestra> palestras) {
-    int palestrasSize = palestras.length;
-    if (this.text != "") {
-      for (var i = palestrasSize - 1; i >= 0; i--) {
-        if (!palestras[i].getSearchResult().contains(text)) {
-          palestras.remove(palestras[i]);
-        }
-      }
-    }
-  }
-
-  List<Palestra> getPalestras() {
-    var palestras = List<Palestra>();
-    var palestra1 = new Palestra("Palestra #1", new Date(2000, 12, 2, 12, 30),
-        new Date(2000, 12, 2, 14, 30), "Viseu", false);
-    var palestra2 = new Palestra("Palestra #2", new Date(2000, 12, 2, 12, 30),
-        new Date(2000, 12, 2, 14, 30), "Viseu", false);
-    var palestra3 = new Palestra("Palestra #3", new Date(2000, 12, 2, 12, 30),
-        new Date(2000, 12, 2, 14, 30), "Porto", false);
-
-    palestras.add(palestra1);
-    palestras.add(palestra2);
-    palestras.add(palestra1);
-    palestras.add(palestra2);
-    palestras.add(palestra1);
-    palestras.add(palestra2);
-    palestras.add(palestra1);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra2);
-    palestras.add(palestra3);
-    palestras.add(palestra3);
-    palestras.add(palestra3);
-    palestras.add(palestra3);
-
-    removePalestras(palestras);
-
-    return palestras;
-  }
 
   Container getSearchBar() {
     return Container(
@@ -145,7 +100,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             height: 30,
           ),
           Column(
-            children: getPalestras()
+            children: database
+                .getPalestras(this.text)
                 .map((palestra) => new PalestraView(palestra).build(context))
                 .toList(),
           )
@@ -203,7 +159,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue[800],
+        selectedItemColor: Color(0xFF293241),
         onTap: _onItemTapped,
       ),
     );
