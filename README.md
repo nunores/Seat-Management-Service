@@ -35,7 +35,7 @@ Nuno Resende (up201806825) <br/>
 
 ## Product Vision
 
-**A safe conference seat for everyone.**
+**A safe, self distanced, conference seat for everyone.**
 
 <!-- Start by defining a clear and concise vision for your module, to help members of the team, contributors, and users into focusing  their often disparate views into a concise, visual, and short textual form. It provides a "high concept" of the product for  marketers, developers, and managers. -->
 <!-- 
@@ -53,7 +53,7 @@ To learn more about how to write a good product vision, please see also:
 ---
 ## Elevator Pitch
 
-Nowadays everyone is afraid of attending conferences because we don't know who is sitting beside us. SMS has the soluction for you. Our app can reserve your seat and immediately make your seat unavailable. This way it's possible to keep a secure distance between all participants and confortably watch the session.
+Nowadays, due to COVID-19, everyone is afraid of attending conferences because we don't know who is sitting beside us. SMS has the soluction for you. Our app can reserve your seat and immediately make it unavailable, alongside the seats immediatly next to yours. This way it's possible to keep a secure distance between all participants and confortably watch the session.
 
 <!--Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
