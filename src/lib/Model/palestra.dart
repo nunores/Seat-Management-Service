@@ -25,10 +25,14 @@ class Palestra {
         this.name.toLowerCase();
   }
 
+  getIsFull() {
+    return full;
+  }
+
   Color isFull() {
     if (this.full) {
-      return Colors.red[600];
+      return Colors.red[300];
     }
-    return Colors.green[700];
+    return Colors.green[300];
   }
 }

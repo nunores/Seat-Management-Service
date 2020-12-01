@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c5827b9-eec3-42ed-a1f1-dee379ad8c3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/main_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/main_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/register.dart" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/register.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +42,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="93" y="93" width="1095" height="495" key="AVDManager" timestamp="1605107514082">
+    <state x="93" y="93" width="1095" height="495" key="AVDManager" timestamp="1606477144208">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="93" y="93" width="1095" height="495" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1605107514082" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1605107461815">
+    <state x="93" y="93" width="1095" height="495" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1606477144207" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1606474573620">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1605107461815" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1606474573619" />
   </component>
 </project>
