@@ -1,3 +1,4 @@
+import 'package:Seat_Manager/Controller/add_conference.dart';
 import 'package:flutter/material.dart';
 import '../View/palestra_view.dart';
 import '../database.dart';
@@ -199,6 +200,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       backgroundColor: Color(0xFF98C1D9),
       body: Center(
         child: getWidgetOptions().elementAt(_selectedIndex),
+      ),
+      floatingActionButton: Container(
+        height: 75.0,
+        width: 75.0,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AddConference(this.database)),
+              );
+            },
+            child: Icon(IconData(58727, fontFamily: 'MaterialIcons')),
+            backgroundColor: Color(0xFF98C1D9),
+          ),
+        ),
       ),
     );
   }
