@@ -25,6 +25,10 @@ class Palestra {
         this.name.toLowerCase();
   }
 
+  String getName() {
+    return name;
+  }
+
   Color isFull() {
     if (this.full) {
       return Colors.red[600];

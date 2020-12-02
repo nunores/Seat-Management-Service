@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Model/palestra.dart';
 import '../Model/user.dart';
+import '../Controller/reservation_page.dart';
 
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
@@ -132,7 +133,12 @@ class PalestraView extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
             if (this._index == 0) {
-              this._user.addPalestraGoing(this._palestra);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ReservationPage(this._palestra, this._user)),
+              );
             }
           },
         ),
