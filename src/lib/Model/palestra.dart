@@ -7,9 +7,10 @@ class Palestra {
   final Date secondDate;
   final String location;
   final bool full;
+  final List<int> seats;
 
-  Palestra(
-      this.name, this.firstDate, this.secondDate, this.location, this.full);
+  Palestra(this.name, this.firstDate, this.secondDate, this.location, this.full,
+      this.seats);
 
   String getSearchResult() {
     return this.name +
@@ -25,10 +26,18 @@ class Palestra {
         this.name.toLowerCase();
   }
 
+  String getName() {
+    return name;
+  }
+
   Color isFull() {
     if (this.full) {
       return Colors.red[600];
     }
     return Colors.green[700];
+  }
+
+  List<int> getSeats() {
+    return seats;
   }
 }
