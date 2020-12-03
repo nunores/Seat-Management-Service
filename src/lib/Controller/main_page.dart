@@ -115,9 +115,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Column(
             children: database
                 .getPalestras(this.text, this.user)
-                .map((palestra) =>
-                    new PalestraView(palestra, this.user, this._selectedIndex)
-                        .build(context))
+                .map((palestra) => new PalestraView(
+                        palestra, this.user, this._selectedIndex, this.database)
+                    .build(context))
                 .toList(),
           )
         ],
@@ -133,9 +133,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Column(
             children: database
                 .getReserved(this.user)
-                .map((palestra) =>
-                    new PalestraView(palestra, this.user, this._selectedIndex)
-                        .build(context))
+                .map((palestra) => new PalestraView(
+                        palestra, this.user, this._selectedIndex, this.database)
+                    .build(context))
                 .toList(),
           )
         ],

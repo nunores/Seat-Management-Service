@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import '../Model/palestra.dart';
 import '../Model/user.dart';
 import '../Controller/reservation_page.dart';
+import '../Controller/reserved.dart';
+import '../database.dart';
 
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
   final User _user;
   final int _index;
+  final Database _database;
 
-  PalestraView(this._palestra, this._user, this._index);
+  PalestraView(this._palestra, this._user, this._index, this._database);
 
   @override
   Widget build(BuildContext context) {
@@ -133,11 +136,18 @@ class PalestraView extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
             if (this._index == 0) {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        ReservationPage(this._palestra, this._user)),
+                    builder: (context) => ReservationPage(
+                        this._palestra, this._user, this._database)),
+              );
+            } else if (this._index == 1) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ReservedPage(
+                        this._palestra, this._user, this._database)),
               );
             }
           },

@@ -132,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           if (verifyUser(
               this.usernameController.text, this.passwordController.text)) {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (context) => MainPage(

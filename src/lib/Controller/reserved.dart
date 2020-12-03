@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import '../Model/user.dart';
 import '../Model/palestra.dart';
-import 'main_page.dart';
 import '../database.dart';
+import '../Controller/main_page.dart';
 
-class ReservationPage extends StatelessWidget {
-  static const String _title = 'Reservation Page';
+class ReservedPage extends StatelessWidget {
+  static const String _title = 'Reserved Page';
 
   final Palestra palestra;
   final User user;
   final Database database;
 
-  ReservationPage(this.palestra, this.user, this.database);
+  ReservedPage(this.palestra, this.user, this.database);
 
   @override
   Widget build(BuildContext context) {
@@ -45,40 +45,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   _MyStatefulWidgetState(this.palestra, this.user, this.database);
 
-  Widget reserveButton() {
-    var reserveButton = Container(
-      child: FlatButton(
-        color: Color(0xFFEE6C4D),
-        textColor: Colors.white,
-        disabledColor: Colors.grey,
-        disabledTextColor: Colors.black,
-        padding: EdgeInsets.all(8.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(150)),
-        ),
-        onPressed: () {
-          if (this.idSelector != -1) {
-            this.user.addPalestraGoing(this.palestra);
-            this.palestra.getSeats()[idSelector] = 2;
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => MainPage(this.user, this.database)));
-          } else {}
-        },
-        child: Text(
-          "Reserve the seat",
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-      ),
-      height: 50,
-      width: 700,
-      margin: EdgeInsets.symmetric(horizontal: 70),
-    );
-
-    return reserveButton;
-  }
-
   Expanded getSeats() {
     return Expanded(
       child: GridView.count(
@@ -99,25 +65,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         color_seat = Colors.white;
       } else if (this.palestra.getSeats()[i] == 1) {
         color_seat = Colors.red[300];
+      } else if (this.palestra.getSeats()[i] == 2) {
+        color_seat = Colors.black;
       }
-      if ((idSelector == i) &&
-          (this.palestra.getSeats()[i] != -1) &&
-          (this.palestra.getSeats()[i] != 1)) color_seat = Colors.green[500];
       seatsList.add(IconButton(
         icon: Icon(
           IconData(59147, fontFamily: 'MaterialIcons'),
           size: 30,
           color: color_seat,
         ),
-        onPressed: () {
-          setState(() {
-            if ((this.palestra.getSeats()[i] != -1) &&
-                (this.palestra.getSeats()[i] != 1))
-              idSelector = i;
-            else
-              idSelector = -1;
-          });
-        },
+        onPressed: () {},
       ));
     }
 
@@ -268,10 +225,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         children: [
           getPalestraInfo(),
           getSeats(),
-          reserveButton(),
-          SizedBox(
-            height: 70,
-          ),
         ],
       ),
     );
