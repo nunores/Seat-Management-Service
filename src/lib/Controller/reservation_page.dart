@@ -59,7 +59,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         onPressed: () {
           if (this.idSelector != -1) {
             this.user.addPalestraGoing(this.palestra);
-            this.palestra.getSeats()[idSelector] = 2;
+            this.user.addSeat(idSelector);
+            this.palestra.getSeats()[idSelector] = 1;
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(

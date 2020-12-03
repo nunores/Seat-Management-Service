@@ -55,8 +55,46 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 
+  Widget cancelButton() {
+    return Container(
+      child: FlatButton(
+        color: Color(0xFFEE6C4D),
+        textColor: Colors.white,
+        disabledColor: Colors.grey,
+        disabledTextColor: Colors.black,
+        padding: EdgeInsets.all(8.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(150)),
+        ),
+        onPressed: () {
+          int index = this.user.getIndexPalestra(this.palestra);
+          int seat = this.user.getSeatsReserved()[index];
+          this.user.palestrasGoing.removeAt(index);
+          this.user.seatsReserved.removeAt(index);
+
+          this.palestra.getSeats()[seat] = 0;
+
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MainPage(this.user, this.database)));
+        },
+        child: Text(
+          "Cancel the reservation",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+      height: 50,
+      width: 700,
+      margin: EdgeInsets.symmetric(horizontal: 70),
+    );
+  }
+
   List<IconButton> getSeatsList() {
     List<IconButton> seatsList = List<IconButton>();
+
+    int index = this.user.getIndexPalestra(this.palestra);
+    int seat = this.user.getSeatsReserved()[index];
 
     for (var i = 0; i < 99; i++) {
       if (this.palestra.getSeats()[i] == -1) {
@@ -65,9 +103,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         color_seat = Colors.white;
       } else if (this.palestra.getSeats()[i] == 1) {
         color_seat = Colors.red[300];
-      } else if (this.palestra.getSeats()[i] == 2) {
+      }
+
+      if (i == seat) {
         color_seat = Colors.black;
       }
+
       seatsList.add(IconButton(
         icon: Icon(
           IconData(59147, fontFamily: 'MaterialIcons'),
@@ -225,6 +266,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         children: [
           getPalestraInfo(),
           getSeats(),
+          cancelButton(),
+          SizedBox(
+            height: 70,
+          ),
         ],
       ),
     );
