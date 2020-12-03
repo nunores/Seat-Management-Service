@@ -98,9 +98,9 @@ Briefly describe each use case mentioning the following:
 ### User stories
 <p> 
  
-**1.** As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
+As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
 **Value:** Must-Have<br>
-**Effort:** M<br>
+**Effort:** L<br>
 **Acceptance Tests:**<br>
 
 * **Given** that I am an user and I want to check the seat availability of a conference.
@@ -112,16 +112,16 @@ Briefly describe each use case mentioning the following:
 </p>
 <p>
  
-**2.** As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.<br>
+As an atendee, I want to be able to reserve a seat, so that I can safely attend the event.<br>
 **Value:** Must-Have<br>
-**Effort:** L<br>
+**Effort:** M<br>
 **Acceptance Tests:** <br>
 
 * **Given** that I am an user and I want to reserve a seat.
-**When** I select a seat that is available, **then** I should be shown a button to make a reservation.
+**When** I select a seat that is available, **then** I should be able to make a reservation.
 
 * **Given** that I am an user and I want to reserve a seat.
-**When** select the button to make a reservation, **then** the seat I reserved must be shown as unavailable.
+**When** I press the button to make a reservation, **then** the seat I reserved must be shown as unavailable in the "My Conferences" section.
 
 * **Given** that I am an user and I want to reserve a seat.
 **When** I select a seat that is not available, **then** nothing will happen.
@@ -132,19 +132,9 @@ Briefly describe each use case mentioning the following:
 </p>
 <p>
  
-**3.** As the administration, I want each atendee to have to check-in, so that each atendee may sit on the seat they have reserved.<br>
+As an atendee, I want to be able to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
 **Value:** Should-Have<br>
 **Effort:** M<br>
-**Acceptance Tests:** <br>
-
-* **Given** that I am the administration and I want to know which seat are occupied in real time.
-**When** a user checks in, **then** I want to see that seat as occupied.
-</p>
-<p>
- 
-**4.** As an atendee, I want to be able to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
-**Value:** Should-Have<br>
-**Effort:** L<br>
 **Acceptance Tests:** <br>
 
 * **Given** that I am an user and I want to cancel a reservation.
@@ -152,30 +142,30 @@ Briefly describe each use case mentioning the following:
 </p>
 <p>
  
-**5.** As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.<br>
+As part of the administration, I want to be able to change the layout of each conference room, so that the seats can be correctly booked.<br>
 **Value:** Could-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
 </p>
 <p>
  
-**6.** As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.<br>
+As part of the administration, I want to be able to see the seats that need to be sanitized, so that I can send a team to clean them later.<br>
 **Value:** Could-Have<br>
-**Effort:** M<br>
+**Effort:** L<br>
 **Acceptance Tests:**<br>
 </p>
 <p>
  
-**7.** As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.<br>
+As the administration, I want to be able to manage the conferences, so that I organize the timetable and location for the events.<br>
 **Value:** Should-Have<br>
-**Effort:** S<br>
+**Effort:** L<br>
 **Acceptance Tests:**<br>
 </p>
 <p>
  
- **8.** As an user, I want to be able to register and log in, so that I can access the application.<br>
+As an user, I want to be able to register and log in, so that I can access the application.<br>
 **Value:** Must-Have<br>
-**Effort:** S<br>
+**Effort:** M<br>
 **Acceptance Tests**:<br>
  
 * **Given** that I am an user, I am prompted to log in.
@@ -203,14 +193,31 @@ Briefly describe each use case mentioning the following:
 </p>
 <p>
  
-**9.** As an atendee, I want to be able to see if the seat I reserved has been cleaned, so that I can safely watch the talk.<br>
-**Value:** Could-Have<br>
+
+As an user, I want to be able to log out of my account, so that I can switch users.<br>
+**Value:** Must-Have<br>
+**Effort:** S<br>
+**Acceptance Tests:**<br>
+
+* **Given** that I am an user, and I want to log out.
+  **When** I click on my profile in the top-right corner and choose to log out, **then** I should go back to the login page.
+</p>
+
+As an user, I want to search for a conference, so that I can easily find the event I want to.<br>
+**Value:** Should-Have<br>
 **Effort:** M<br>
 **Acceptance Tests:**<br>
 
-* **Given** that I am an user, and I want to know the seat I intend to sit on has been cleaned.
-  **When** the administration has cleaned the seat, **then** I should receive a notification warning me that I can go sit.
-</p>
+* **Given** that I am an user, and I want to search for a conference.
+  **When** I input a text on the search bar with a location or a name, **then** I should be shown conferences with those properties.
+
+As an user, I want to be able to choose a conference, so that I can see its information.<br>
+**Value** Must-Have<br>
+**Effort** L<br>
+**Acceptance Tests:**<br>
+
+* **Given** that I am an user, and I want to look for a conference.
+  **When** I log in, **then** I can see all conferences available.
 
 <!-- **INVEST in good user stories**.
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
