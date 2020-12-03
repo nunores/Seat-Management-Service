@@ -6,11 +6,11 @@ import '../Controller/add_conference.dart';
 
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
-  final User _user;
+  final User user;
   final int _index;
   final Database database;
 
-  PalestraView(this._palestra, this._user, this._index, this.database);
+  PalestraView(this._palestra, this.user, this._index, this.database);
 
   @override
   Widget build(BuildContext context) {
@@ -119,13 +119,13 @@ class PalestraView extends StatelessWidget {
               width: 1000,
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
-            if (this._user.isAdmin()) {
+            if (this.user.isAdmin()) {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => AddConference(this.database)));
+                      builder: (context) => AddConference(this.user, this.database)));
             } else if ((this._index == 0) && !this._palestra.getIsFull()) {
-              this._user.addPalestraGoing(this._palestra);
+              this.user.addPalestraGoing(this._palestra);
             }
           },
         ),

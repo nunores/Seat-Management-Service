@@ -16,6 +16,13 @@ class Date {
   }
 
   printTime() {
-    return this.hour.toString() + ":" + this.min.toString();
+    var minutes;
+
+    if(this.min < 10)
+      minutes = "0" + this.min.toString();
+    else minutes = this.min.toString();
+
+    return this.hour.toString() + ":" + minutes ;
+
   }
 }

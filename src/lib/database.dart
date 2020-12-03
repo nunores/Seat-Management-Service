@@ -29,6 +29,11 @@ class Database {
     users.add(user);
   }
 
+  void addPalestra(Palestra palestra){
+    print(palestra);
+    palestras.add(palestra);
+  }
+
   List<Palestra> removePalestras(String text, User user) {
     List<Palestra> palestrasTemp = new List<Palestra>.from(palestras);
     int palestrasSize = palestrasTemp.length;

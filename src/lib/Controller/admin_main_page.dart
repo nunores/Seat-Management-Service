@@ -201,23 +201,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       body: Center(
         child: getWidgetOptions().elementAt(_selectedIndex),
       ),
-      floatingActionButton: Container(
-        height: 75.0,
-        width: 75.0,
-        child: FittedBox(
-          child: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
             onPressed: () {
+              print(this.user);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => AddConference(this.database)),
+                    builder: (context) => AddConference(this.user,  this.database)),
               );
             },
             child: Icon(IconData(58727, fontFamily: 'MaterialIcons')),
             backgroundColor: Color(0xFF98C1D9),
           ),
-        ),
-      ),
     );
   }
 }
