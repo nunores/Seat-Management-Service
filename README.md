@@ -170,6 +170,8 @@ Briefly describe each use case mentioning the following:
 **Value:** Should-Have<br>
 **Effort:** S<br>
 **Acceptance Tests:**<br>
+* **Given** that I am part of the administration and I want to create a conference
+  **When** when I insert a date to the end of the conference that is smaller than the date to the begin of the conference, **then** the program prints an error message.
 </p>
 <p>
  
