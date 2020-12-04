@@ -42,7 +42,7 @@ class PalestraView extends StatelessWidget {
                           width: 20,
                         ),
                         Icon(
-                          IconData(62168, fontFamily: 'MaterialIcons'),
+                          const IconData(62168, fontFamily: 'MaterialIcons'),
                           color: Colors.white,
                           size: 30,
                           semanticLabel: 'Location',
@@ -61,7 +61,7 @@ class PalestraView extends StatelessWidget {
                           width: 20,
                         ),
                         Icon(
-                          IconData(58915, fontFamily: 'MaterialIcons'),
+                          const IconData(58915, fontFamily: 'MaterialIcons'),
                           color: Colors.white,
                           size: 30,
                           semanticLabel: 'Date',
@@ -88,7 +88,7 @@ class PalestraView extends StatelessWidget {
                         width: 20,
                       ),
                       Icon(
-                        IconData(0xe55b, fontFamily: 'MaterialIcons'),
+                        const IconData(0xe55b, fontFamily: 'MaterialIcons'),
                         color: Colors.white,
                         size: 30,
                         semanticLabel: 'Time',

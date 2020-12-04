@@ -34,7 +34,8 @@ class MyStatefulWidget extends StatefulWidget {
   MyStatefulWidget(this.user, this.database, {Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState(this.user, this.database);
+  _MyStatefulWidgetState createState() =>
+      _MyStatefulWidgetState(this.user, this.database);
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
@@ -79,34 +80,34 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
 
     Container hourPicker = Container(
-      child: Row(
-          children: [
-            SizedBox( width: 70),
-            TimePickerSpinner(
-              isForce2Digits: true,
-              is24HourMode: true,
-              spacing: 5,
-              minutesInterval: 1,
-              onTimeChange: (time) {
-              setState(() {
-                _dateTimeBegin = time;
-              });
-              },),
-            SizedBox( width: 50),
-            TimePickerSpinner(
-              isForce2Digits: true,
-              is24HourMode: true,
-              spacing: 5,
-              minutesInterval: 1,
-              onTimeChange: (time) {
-                setState(() {
-                  _dateTimeEnd = time;
-                });
-              },),
+      child: Row(children: [
+        SizedBox(width: 70),
+        TimePickerSpinner(
+          isForce2Digits: true,
+          is24HourMode: true,
+          spacing: 5,
+          minutesInterval: 1,
+          onTimeChange: (time) {
+            setState(() {
+              _dateTimeBegin = time;
+            });
+          },
+        ),
+        SizedBox(width: 50),
+        TimePickerSpinner(
+          isForce2Digits: true,
+          is24HourMode: true,
+          spacing: 5,
+          minutesInterval: 1,
+          onTimeChange: (time) {
+            setState(() {
+              _dateTimeEnd = time;
+            });
+          },
+        ),
 
-      //height: 50,
-      ]
-      ),
+        //height: 50,
+      ]),
     );
 
     Container nomeField = Container(
@@ -170,12 +171,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
-           var newPalestra = new Palestra(
-                nameController.text,
-               new Date(_selectedDate.year, _selectedDate.month, _selectedDate.day, _dateTimeBegin.hour, _dateTimeBegin.minute),
-               new Date(_selectedDate.year, _selectedDate.month, _selectedDate.day, _dateTimeEnd.hour, _dateTimeEnd.minute),
-               locationController.text,
-               false, this.database.generateSeats());
+          var newPalestra = new Palestra(
+              nameController.text,
+              new Date(
+                  _selectedDate.year,
+                  _selectedDate.month,
+                  _selectedDate.day,
+                  _dateTimeBegin.hour,
+                  _dateTimeBegin.minute),
+              new Date(_selectedDate.year, _selectedDate.month,
+                  _selectedDate.day, _dateTimeEnd.hour, _dateTimeEnd.minute),
+              locationController.text,
+              false,
+              this.database.generateSeats());
 
           print(this.user);
           this.database.addPalestra(newPalestra);
@@ -185,7 +193,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               MaterialPageRoute(
                   builder: (context) =>
                       MainPageAdmin(this.user, this.database)));
-
         },
         child: Text(
           "Add Palestra",
@@ -196,7 +203,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       width: 700,
       margin: EdgeInsets.symmetric(horizontal: 70),
     );
-
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -238,7 +244,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ],
               icon: Icon(
-                IconData(59648, fontFamily: 'MaterialIcons'),
+                const IconData(59648, fontFamily: 'MaterialIcons'),
                 size: 50,
                 color: Colors.white,
               ),
@@ -261,7 +267,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           datePicker,
           hourPicker,
           SizedBox(
-            height:50,
+            height: 50,
           ),
           addButton,
         ],
