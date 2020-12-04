@@ -7,10 +7,16 @@ class User {
 
   final List<Palestra> palestrasGoing = [];
 
+  final List<int> seatsReserved = [];
+
   User(this.username, this.password, this.admin);
 
   void addPalestraGoing(Palestra palestra) {
     this.palestrasGoing.add(palestra);
+  }
+
+  void addSeat(int seat) {
+    this.seatsReserved.add(seat);
   }
 
   bool isGoing(Palestra palestra) {
@@ -31,5 +37,17 @@ class User {
 
   List<Palestra> getPalestrasGoing() {
     return palestrasGoing;
+  }
+
+  List<int> getSeatsReserved() {
+    return seatsReserved;
+  }
+
+  int getIndexPalestra(Palestra palestra) {
+    for (int i = 0; i < palestrasGoing.length; i++) {
+      if (palestrasGoing[i] == palestra) return i;
+    }
+
+    return -1;
   }
 }

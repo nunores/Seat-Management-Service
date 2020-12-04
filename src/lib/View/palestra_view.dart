@@ -3,14 +3,16 @@ import '../Model/palestra.dart';
 import '../Model/user.dart';
 import '../database.dart';
 import '../Controller/add_conference.dart';
+import '../Controller/reservation_page.dart';
+import '../Controller/reserved.dart';
 
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
-  final User user;
+  final User _user;
   final int _index;
-  final Database database;
+  final Database _database;
 
-  PalestraView(this._palestra, this.user, this._index, this.database);
+  PalestraView(this._palestra, this._user, this._index, this._database);
 
   @override
   Widget build(BuildContext context) {
@@ -119,13 +121,28 @@ class PalestraView extends StatelessWidget {
               width: 1000,
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
-            if (this.user.isAdmin()) {
+            if (this._user.isAdmin()) {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => AddConference(this.user, this.database)));
-            } else if ((this._index == 0) && !this._palestra.getIsFull()) {
-              this.user.addPalestraGoing(this._palestra);
+                      builder: (context) =>
+                          AddConference(this._user, this._database)));
+            } else {
+              if (this._index == 0) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ReservationPage(
+                          this._palestra, this._user, this._database)),
+                );
+              } else if (this._index == 1) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ReservedPage(
+                          this._palestra, this._user, this._database)),
+                );
+              }
             }
           },
         ),
