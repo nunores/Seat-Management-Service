@@ -175,7 +175,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                new Date(_selectedDate.year, _selectedDate.month, _selectedDate.day, _dateTimeBegin.hour, _dateTimeBegin.minute),
                new Date(_selectedDate.year, _selectedDate.month, _selectedDate.day, _dateTimeEnd.hour, _dateTimeEnd.minute),
                locationController.text,
-               false);
+               false, this.database.generateSeats());
 
           print(this.user);
           this.database.addPalestra(newPalestra);
