@@ -154,8 +154,8 @@ class RegisterRoute extends StatelessWidget {
               ((passwordController.text != "") &&
                   (usernameController.text != ""))) // If the user doesn't exist
           {
-            this.newUser =
-                new User(usernameController.text, passwordController.text);
+            this.newUser = new User(
+                usernameController.text, passwordController.text, false);
 
             this.database.addUser(this.newUser);
 

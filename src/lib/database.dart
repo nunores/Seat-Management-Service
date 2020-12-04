@@ -21,16 +21,21 @@ class Database {
   }
 
   final List<User> users = [
-    new User("abc", "123"),
-    new User("nuno", "talas"),
-    new User("calves", "quebra"),
-    new User("antonio", "pipoca"),
-    new User("admin", "admin"),
-    new User("1Pedra", "1/2Quebra")
+    new User("abc", "123", false),
+    new User("nuno", "talas", false),
+    new User("calves", "quebra", false),
+    new User("antonio", "pipoca", false),
+    new User("admin", "admin", true),
+    new User("1Pedra", "1/2Quebra", false)
   ];
 
   void addUser(User user) {
     users.add(user);
+  }
+
+  void addPalestra(Palestra palestra) {
+    print(palestra);
+    palestras.add(palestra);
   }
 
   List<Palestra> removePalestras(String text, User user) {

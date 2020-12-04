@@ -1,3 +1,4 @@
+import 'package:Seat_Manager/Controller/add_conference.dart';
 import 'package:flutter/material.dart';
 import '../View/palestra_view.dart';
 import '../database.dart';
@@ -6,13 +7,13 @@ import '../main.dart';
 
 enum ProfileOptions { logout }
 
-class MainPage extends StatelessWidget {
+class MainPageAdmin extends StatelessWidget {
   static const String _title = 'Main Page';
 
   final User user;
   final Database database;
 
-  MainPage(this.user, this.database);
+  MainPageAdmin(this.user, this.database);
 
   @override
   Widget build(BuildContext context) {
@@ -146,12 +147,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     ];
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,26 +201,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       body: Center(
         child: getWidgetOptions().elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              IconData(59147, fontFamily: 'MaterialIcons'),
-            ),
-            label: 'All Conferences',
+      floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              print(this.user);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AddConference(this.user,  this.database)),
+              );
+            },
+            child: Icon(IconData(58727, fontFamily: 'MaterialIcons')),
+            backgroundColor: Color(0xFF98C1D9),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              IconData(59171,
-                  fontFamily: 'MaterialIcons', matchTextDirection: true),
-            ),
-            label: 'My Conferences',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFFEE6C4D),
-        onTap: _onItemTapped,
-      ),
     );
   }
 }

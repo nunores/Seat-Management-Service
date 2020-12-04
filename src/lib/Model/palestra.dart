@@ -26,18 +26,22 @@ class Palestra {
         this.name.toLowerCase();
   }
 
+  bool getIsFull() {
+    return full;
+  }
   String getName() {
     return name;
   }
 
   Color isFull() {
     if (this.full) {
-      return Colors.red[600];
+      return Colors.red[300];
     }
-    return Colors.green[700];
+    return Colors.green[300];
   }
 
   List<int> getSeats() {
     return seats;
   }
 }
+

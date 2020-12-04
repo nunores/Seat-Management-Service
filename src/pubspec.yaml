@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_holo_date_picker: ^0.3.0
+  flutter_time_picker_spinner: ^1.0.6+1
   flutter:
     sdk: flutter
   

@@ -1,8 +1,10 @@
+import 'package:Seat_Manager/Controller/admin_main_page.dart';
 import 'package:flutter/material.dart';
 import 'Controller/register.dart';
 import 'Controller/main_page.dart';
 import 'database.dart';
 import 'Model/user.dart';
+import 'Controller/admin_main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,11 +26,16 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.title, database}) : super(key: key) {
+    if (database == null)
+      this.database = new Database();
+    else
+      this.database = database;
+  }
 
   final String title;
 
-  final Database database = new Database();
+  Database database;
 
   @override
   _MyHomePageState createState() => _MyHomePageState(database);
@@ -132,13 +139,25 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           if (verifyUser(
               this.usernameController.text, this.passwordController.text)) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => MainPage(
-                        findUser(this.usernameController.text,
-                            this.passwordController.text),
-                        this.database)));
+            if (findUser(
+                    this.usernameController.text, this.passwordController.text)
+                .isAdmin()) {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MainPageAdmin(
+                          findUser(this.usernameController.text,
+                              this.passwordController.text),
+                          this.database)));
+            } else {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MainPage(
+                          findUser(this.usernameController.text,
+                              this.passwordController.text),
+                          this.database)));
+            }
           } else {
             showAlertDialog(context);
           }
