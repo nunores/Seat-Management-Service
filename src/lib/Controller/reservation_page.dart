@@ -231,6 +231,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 
+  Container getGoBackButton(BuildContext context) {
+    return Container(
+      child: IconButton(
+        color: Colors.white,
+        icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MainPage(this.user, this.database)),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -239,20 +255,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              child: IconButton(
-                color: Colors.white,
-                icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            MainPage(this.user, this.database)),
-                  );
-                },
-              ),
-            ),
+            getGoBackButton(context),
             Container(
               child: Image.asset(
                 'images/logo.png',

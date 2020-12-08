@@ -195,7 +195,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       MainPageAdmin(this.user, this.database)));
         },
         child: Text(
-          "Add Palestra",
+          "Add Conference",
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
@@ -204,6 +204,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       margin: EdgeInsets.symmetric(horizontal: 70),
     );
 
+    Container getGoBackButton(BuildContext context) {
+      return Container(
+        child: IconButton(
+          color: Colors.white,
+          icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      MainPageAdmin(this.user, this.database)),
+            );
+          },
+        ),
+      );
+    }
+
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -211,6 +228,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            getGoBackButton(context),
             Container(
               child: Image.asset(
                 'images/logo.png',

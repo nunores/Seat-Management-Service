@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c5827b9-eec3-42ed-a1f1-dee379ad8c3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Controller/reservation_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Controller/reservation_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +43,15 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="93" y="93" width="1095" height="495" key="AVDManager" timestamp="1606477144208">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="140" y="148" width="1643" height="787" key="AVDManager" timestamp="1607450264883">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="93" y="93" width="1095" height="495" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1605107514082" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1606933372678">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="140" y="148" width="1643" height="787" key="AVDManager/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1607450264883" />
+    <state x="213" y="0" key="SettingsEditor" timestamp="1607450192314">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1606933372678" />
+    <state x="213" y="0" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1607450192314" />
   </component>
 </project>
