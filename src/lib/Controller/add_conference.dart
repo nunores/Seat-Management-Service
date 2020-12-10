@@ -74,28 +74,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     Widget okButton = FlatButton(
       child: Text("OK"),
       onPressed: () {
-        Navigator.of(context).pop();
+        Navigator.of(context, rootNavigator: true).pop();
       },
     );
 
     // set up the AlertDialog
-    /*AlertDialog alert = AlertDialog(
+    AlertDialog alert = AlertDialog(
       title: Text("Invalid Input"),
       content: Text("The dates selected are not valid"),
       actions: [
         okButton,
       ],
-    );*/
+    );
 
     // show the dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-                title: Text("Invalid Input"),
-                content: Text("The dates selected are not valid"),
-                actions: [okButton,
-                ],);
+        return alert;
       },
     );
   }
@@ -127,7 +123,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 type: DateTimePickerType.dateTimeSeparate,
                 dateMask: 'd MMM, yyyy',// default is not looping
                 initialValue: DateTime.now().toString(),
-                firstDate: DateTime(2020),
+                firstDate: DateTime.now(),
                 lastDate: DateTime(2100),
 
                 icon: Icon(Icons.event),
@@ -200,6 +196,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
+          if(_firstDateTime == null) _firstDateTime= DateTime.now();
+          if(_secondDateTime == null) _secondDateTime= DateTime.now();
           if (verifyDates(_firstDateTime, _secondDateTime)) {
             var newPalestra = new Palestra(
                 nameController.text,

@@ -50,6 +50,52 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   DateTime _firstDateTime;
   DateTime _secondDateTime;
 
+  verifyDates(firstDateTime, secondDateTime){
+    if (firstDateTime.year == secondDateTime.year){
+      if(firstDateTime.month == secondDateTime.month){
+        if(firstDateTime.day == secondDateTime.day){
+          if(firstDateTime.hour == secondDateTime.hour){
+            if(firstDateTime.minute > secondDateTime.minute) return false;
+            else return true;
+          }
+          else if (firstDateTime.hour > secondDateTime.hour) return false;
+          else return true;
+        }
+        else if (firstDateTime.day > secondDateTime.day) return false;
+        else return true;
+      }
+      else if (firstDateTime.month > secondDateTime.month) return false;
+      else return true;
+    }
+    else if (firstDateTime.year > secondDateTime.year) return false;
+    else return true;
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Invalid Input"),
+      content: Text("The dates selected are not valid"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 
 
   @override
@@ -156,8 +202,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
-          //if (verifyDates(_firstDateTime, _secondDateTime)) {
-          this.database.editPalestra(this.palestra, nameController.text,
+          if(_firstDateTime == null) _firstDateTime= DateTime(this.palestra.firstDate.year, this.palestra.firstDate.month,
+            this.palestra.firstDate.day, this.palestra.firstDate.hour, this.palestra.firstDate.min);
+          if(_secondDateTime == null) _secondDateTime= DateTime(this.palestra.secondDate.year, this.palestra.secondDate.month,
+            this.palestra.secondDate.day, this.palestra.secondDate.hour, this.palestra.secondDate.min);
+          if (verifyDates(_firstDateTime, _secondDateTime)) {
+            this.database.editPalestra(this.palestra, nameController.text,
             new Date(_firstDateTime.year, _firstDateTime.month,
               _firstDateTime.day, _firstDateTime.hour,
               _firstDateTime.minute),
@@ -171,9 +221,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               MaterialPageRoute(
                   builder: (context) =>
                       MainPageAdmin(this.user, this.database)));
-          /*} else{
+          } else{
             showAlertDialog(context);
-          }*/
+          }
         },
         child: Text(
           "Edit Conference",
@@ -217,6 +267,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         backgroundColor: Color(0xFF293241),
         title: Row(
