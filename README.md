@@ -2,9 +2,9 @@
 
 Welcome to the documentation pages of the Seat Management Service of **openCX**!
 
-You can find here detailed about the (sub)product, hereby mentioned as module, from a high-level vision to low-level implementation decisions, a kind of Software Development Report (see [template](https://github.com/softeng-feup/open-cx/blob/master/docs/templates/Development-Report.md)), organized by discipline (as of RUP): 
+You can find here detailed about the (sub)product, hereby mentioned as module, from a high-level vision to low-level implementation decisions, a kind of Software Development Report (see [template](https://github.com/softeng-feup/open-cx/blob/master/docs/templates/Development-Report.md)), organized by discipline (as of RUP):
 
-* Business modeling 
+* Business modeling
   * [Product Vision](#Product-Vision)
   * [Elevator Pitch](#Elevator-Pitch)
 * Requirements
@@ -22,7 +22,7 @@ You can find here detailed about the (sub)product, hereby mentioned as module, f
 
 So far, contributions are exclusively made by the initial team, but we hope to open them to the community, in all areas and topics: requirements, technologies, development, experimentation, testing, etc.
 
-Please contact us! 
+Please contact us!
 
 Thank you!
 
@@ -37,70 +37,165 @@ Nuno Resende (up201806825) <br/>
 
 **A safe, self distanced, conference seat for everyone.**
 
-<!-- Start by defining a clear and concise vision for your module, to help members of the team, contributors, and users into focusing  their often disparate views into a concise, visual, and short textual form. It provides a "high concept" of the product for  marketers, developers, and managers. -->
-<!-- 
-A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product [comment]will deliver in the future. -->
-
-<!-- **We favor a catchy and concise statement, ideally one sentence.**
-
-To learn more about how to write a good product vision, please see also:
-* [How To Create A Convincing Product Vision To Guide Your Team, by uxstudioteam.com](https://uxstudioteam.com/ux-blog/product-vision/)
-* [Product Management: Product Vision, by ProductPlan](https://www.productplan.com/glossary/product-vision/)
-* [Vision, by scrumbook.org](http://scrumbook.org/value-stream/vision.html)
-* [How to write a vision, by dummies.com](https://www.dummies.com/business/marketing/branding/how-to-write-vision-and-mission-statements-for-your-brand/)
-* [20 Inspiring Vision Statement Examples (2019 Updated), by lifehack.org](https://www.lifehack.org/articles/work/20-sample-vision-statement-for-the-new-startup.html) -->
-
----
 ## Elevator Pitch
 
-Nowadays, due to COVID-19, everyone is afraid of attending conferences because we don't know who is sitting beside us. SMS has the soluction for you. Our app can reserve your seat and immediately make it unavailable, alongside the seats immediatly next to yours. This way it's possible to keep a secure distance between all participants and confortably watch the session.
+Nowadays, due to COVID-19, everyone is afraid of attending conferences because we don't know who is sitting beside us. SMS has the solution for you. Our app can reserve your seat and immediately make it unavailable, alongside the seats immediatly next to yours. This way it's possible to keep a secure distance between all participants and confortably watch the session.
 
-<!--Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
+### Use case diagram
 
-Take a look at the following links to learn some techniques:
-* [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
-* [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
--->
----
-## Requirements
+![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.png)
 
-<!--In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
+<p>
 
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.-->
+**Login**<br>
+**Actor:** User.<br>
+**Description:** This use case exists so that the user can login into their account, when they enter a correct username and password.<br>
+**Preconditions and Postconditions:** After doing login the user can access the account's information.<br>
+**Normal Flow:**<br>
+1. The user enters an username and a password in the correspondent boxes.
+2. The user the presses the button 'Log In'.
+3. If the username and password are associated to an account with administration clearence, the application opens the administration area, otherwise it enters the atendee area.
 
-### Use case diagram 
+**Alternative Flows and Exceptions:**<br>
+1. The user enters an username and a password in the correspondent boxes.
+2. The user the presses the button 'Log In'.
+3. If the username and password don't match any account in the database, a message of error appears on the screen.
+4. The user may press the button 'Ok' and return to the login screen.
+</p>
 
-![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.jpeg)
+<p>
 
-<!-- Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
+**Logout**<br>
+**Actor:** User.<br>
+**Description:** This use case exists so that the user can logout of their account.<br>
+**Preconditions and Postconditions:** After doing logout the user can no longer access the account's information.<br>
+**Normal Flow:**<br>
+1. The user presses the perfil icon in the upper bar.
+2. The user the presses the button 'Log Out'.
+</p>
 
-Give each use case a concise, results-oriented name. Use cases should reflect the tasks the user needs to be able to accomplish using the system. Include an action verb and a noun. 
+<p>
 
-Briefly describe each use case mentioning the following:
+**Register**<br>
+**Actor:** Atendee.<br>
+**Description:** This use case exists so that the atendees can create an account with an username and a password of their choice.<br>
+**Preconditions and Postconditions:** After the atendee registers, the login is automatically done. <br>
+**Normal Flow:**<br>
+1. If the atendee doesn't have an account, the atendee presses the 'Register' button.
+2. A page will appear where the atendee inserts his account information.
+3. The atende presses the button 'Register'
+</p>
 
-* **Actor**. Name only the actor that will be initiating this use case, i.e. a person or other entity external to the software system being specified who interacts with the system and performs use cases to accomplish tasks. 
-* **Description**. Provide a brief description of the reason for and outcome of this use case, or a high-level description of the sequence of actions and the outcome of executing the use case. 
-* **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
+<p>
 
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
-* **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
- -->
- 
+**Make a Reservation**<br>
+**Actor:** Atendee.<br>
+**Description:** An atendee must be able to make a reservation for a conference if there still are seats available for the session.<br>
+**Preconditions and Postconditions:** To be able to make a reservation, the atendee has to first select a conference and an available seat. After the reservation is made, the conference must appear in the atendee's 'My Conferences' and the seat must be shown as occupied for other users.<br>
+**Normal Flow:**<br>
+1. The atendee chooses a seat that is shown as available (colored green).
+2. The atendee presses the button 'Reserve the seat'.
+3. The application returns to the folder "All Conferences".
+</p>
+
+<p>
+
+**Cancel Reservation**<br>
+**Actor:** Atendee.<br>
+**Description:** An atendee must be able to cancel a reservation for a conference they had made a reservation on.<br>
+**Preconditions and Postconditions:** To be able to cancel a reservation, the atendee has to have made a reservation to the conference. After the reservation is cancelled, the conference must not appear in the atendee's 'My Conferences' and the seat must be shown as free for other users.<br>
+**Normal Flow:**<br>
+1. The atendee presses the button 'Cancel the reservation'.
+2. The application returns to the folder "All Conferences".
+</p>
+
+**See conferences atendee is going to**<br>
+**Actor:** Atendee.<br>
+**Description:** An atendee must be able to see all the conferences for which the have made a reservation.<br>
+**Normal Flow:**<br>
+1. The atendee presses the folder 'My Conferences' in the bottom of the page.
+2. The information from all the conferences that the atendee has reserved is shown on the screen.
+</p>
+
+<p>
+
+**Create Conference**<br>
+**Actor:** Administration.<br>
+**Description:** This use case exists so that the administration can create new conferences.<br>
+**Preconditions and Postconditions:** After being created, the conference must appear in the list of conferences.<br>
+**Normal Flow:**<br>
+1. The administration presses the floating button in the bottom of the screen.
+2. The name, location, and both dates and hours that define the conference must be introduced.
+3. The administration presses the button 'Add Conference'.
+4. The application shows the list of conferences where the new conference is now present.
+
+**Alternative Flows and Exceptions:**<br>
+1. The administration presses the floating button in the bottom of the screen.
+2. The name, location, and both dates and hours that define the conference must be introduced.
+3. The administration presses the button 'Add Conference'.
+4. If the first date is after the second date defined previously,  a message of error appears on the screen.
+5. The administration must press the button 'Ok' and return to the creation of a new conference.
+</p>
+
+**Delete Conference**<br>
+**Actor:** Administration.<br>
+**Description:** This use case exists so that the administration can delete an already existing conference.<br>
+**Preconditions and Postconditions:** After being deleted, the conference should disapear from the conference list.<br>
+**Normal Flow:**<br>
+1. The administration chooses a conference from the list.
+2. The administration presses the button 'Remove Conference'.
+3. The application shows the list of conferences where the conference is no longer present.
+</p>
+
+**Edit Conference**<br>
+**Actor:** Administration.<br>
+**Description:** This use case exists so that the administration can edit the details of an already existing conference.<br>
+**Preconditions and Postconditions:** After being edited, the conference must appear in the list of conferences with the altered information.<br>
+**Normal Flow:**<br>
+1.  The administration chooses a conference from the list.
+2. The name, location, and both dates and hours that define the conference may be altered.
+3. The administration presses the button 'Edit Conference'.
+4. The application shows the list of conferences where the conference is now present with the new information.
+
+**Alternative Flows and Exceptions:**<br>
+1. The administration presses the floating button in the bottom of the screen.
+2. The name, location, and both dates and hours that define the conference must be may be altered.
+3. The administration presses the button 'Edit Conference'.
+4. If the first date is after the second date defined previously,  a message of error appears on the screen.
+5. The administration must press the button 'Ok' and return to the creation of a new conference.
+</p>
+
+<p>
+
+**Manage Conference Room Layout**<br>
+**Actor:** Administration.<br>
+**Description:** This use case exists so that the administration can change a room layout, increasing or decreasing the number of seats.<br>
+</p>
+
+<p>
+
+**See seats that need to be sanitized**<br>
+**Actor:** Administration.<br>
+**Description:** The administration must be able to know which seats have been used by atendees and, therefore, need to be sanitized.<br>
+</p>
+
 ### User stories
+![User Story Map](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/user_story_map.png)
 <p> 
- 
+
 As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
 **Value:** Must-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
+
+**Scenario**: Checking seat availability.
 
 * **Given** that I am an user and I want to check the seat availability of a conference.
 **When** I select a specific conference, **then** I should be shown the layout of the conference room, showing all available and unavailable seats.
 
 **User interface mockups:** <br>
 
-![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_4.png)
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/ReserveSeat.PNG)
 </p>
 <p>
  
@@ -108,6 +203,8 @@ As an atendee, I want to be able to reserve a seat, so that I can safely attend 
 **Value:** Must-Have<br>
 **Effort:** M<br>
 **Acceptance Tests:** <br>
+
+**Scenario**: Reserving a seat.
 
 * **Given** that I am an user and I want to reserve a seat.
 **When** I select a seat that is available, **then** I should be able to make a reservation.
@@ -120,17 +217,24 @@ As an atendee, I want to be able to reserve a seat, so that I can safely attend 
 
 **User interface mockups:** <br>
 
-![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mockups/mockup_5.png)
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/ReserveSeat.PNG)
 </p>
 <p>
- 
+
 As an atendee, I want to be able to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
 **Value:** Should-Have<br>
 **Effort:** M<br>
 **Acceptance Tests:** <br>
 
+**Scenario**: Cancelling a reservation.
+
 * **Given** that I am an user and I want to cancel a reservation.
 **When** I select the button to cancel a reservation, **then** the seat previously shown as unavailable is available again.
+
+**User interface mockups:** <br>
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/CancelReservation.PNG)
+
 </p>
 <p>
  
@@ -138,6 +242,8 @@ As part of the administration, I want to be able to change the layout of each co
 **Value:** Could-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
+
+**Scenario**: Changing the layout of a conference room.
 </p>
 <p>
  
@@ -145,6 +251,8 @@ As part of the administration, I want to be able to see the seats that need to b
 **Value:** Could-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
+
+**Scenario**: Cleaning seats that need to be sanitized.
 </p>
 <p>
  
@@ -152,13 +260,27 @@ As the administration, I want to be able to manage the conferences, so that I or
 **Value:** Should-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
+
+**Scenario**: Managing conferences.
+
+* **Given** that I am part of the administration and I want to create a conference
+  **When** when I insert a date to the end of the conference that is smaller than the date to the begin of the conference, **then** the program prints an error message.
+
+**User interface mockups:** <br>
+
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/AddConference.PNG)
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/EditConference.PNG)
+
 </p>
 <p>
  
-As an user, I want to be able to register and log in, so that I can access the application.<br>
+As an user, I want to be able to register and log in, so that I can access the main page of the application.<br>
 **Value:** Must-Have<br>
 **Effort:** M<br>
 **Acceptance Tests**:<br>
+
+**Scenario**: Logging in/Registering.
  
 * **Given** that I am an user, I am prompted to log in.
   **When** I don't have an account and press the "register" button, **then** I should go to the register page.
@@ -191,8 +313,14 @@ As an user, I want to be able to log out of my account, so that I can switch use
 **Effort:** S<br>
 **Acceptance Tests:**<br>
 
+**Scenario**: Logging Out.
+
 * **Given** that I am an user, and I want to log out.
   **When** I click on my profile in the top-right corner and choose to log out, **then** I should go back to the login page.
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/Logout.PNG)
+
+
 </p>
 
 As an user, I want to search for a conference, so that I can easily find the event I want to.<br>
@@ -200,117 +328,57 @@ As an user, I want to search for a conference, so that I can easily find the eve
 **Effort:** M<br>
 **Acceptance Tests:**<br>
 
+**Scenario**: Searching for a conference by its name or location.
+
 * **Given** that I am an user, and I want to search for a conference.
   **When** I input a text on the search bar with a location or a name, **then** I should be shown conferences with those properties.
+
+
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/Search.PNG)
+
 
 As an user, I want to be able to choose a conference, so that I can see its information.<br>
 **Value** Must-Have<br>
 **Effort** L<br>
 **Acceptance Tests:**<br>
 
+**Scenario**: Choosing a conference.
+
 * **Given** that I am an user, and I want to look for a conference.
   **When** I log in, **then** I can see all conferences available.
 
-<!-- **INVEST in good user stories**.
-You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
 
-**User interface mockups**
-After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable
+![User Story Mockup](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Mocks/AllConferences.PNG)
 
-**Acceptance tests**.
-For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
-
-**Value and effort**.-->
 
 ### Domain model
 
-To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
-
----
+![Domain Model](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/problem_domain.png)
 
 ## Architecture and Design
-
-The architecture of a software system encompasses the set of key decisions about its overall organization. 
-
-A well written architecture document is brief but reduces the amount of time it takes new programmers to a project to understand the code to feel able to make modifications and enhancements.
-
-To document the architecture requires describing the decomposition of the system in their parts (high-level components) and the key behaviors and collaborations between them. 
-
-In this section you should start by briefly describing the overall components of the project and their interrelations. You should also describe how you solved typical problems you may have encountered, pointing to well-known architectural and design patterns, if applicable.
-
 
 ### Logical architecture
 
 ![Logical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Logic.png)
 
-
-The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
-
-It can be beneficial to present the system both in a horizontal or vertical decomposition:
-* horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
-* vertical decomposition can define a hierarchy of subsystems that cover all layers of implementation.
+Our project is organized in an MVC-like structure. The Model package contains components for the objects present: conference, user and date. All of these are informations that need to be stored and manipulated throught the product's usage. In the View package, the conference_view component describes how a conference is presented to the screen and handles the user interactability. The Controller package contains information on the various pages of our project, pages to handle the registry and sign in processes, the main page, the page for the administration, pages for seat reservation. etc. These are the components that tie together all of the program's pieces.
 
 ### Physical architecture
 
 ![Physical Architecture](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/Physical.png)
 
+The only thing needed to run the project is a smartphone. The user interacts with the application directly by touching specific buttons whenever they are prompted. Since we have some handling of the user's inputs, we called it "hidden processing", as these are changes in the database, prompts for the user at an adequate time, alert dialogs on invalid inputs, and all other unpredictable actions that need to be taken in consideration.
 
-The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
+The technology used is Flutter, a Dart framework that allows the app to run both on Android and iOS operating systems.
 
-It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
-
-### Prototype
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
-
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
-
----
-
-## Implementation
-Regular product increments are a good practice of product management. 
-
-While not necessary, sometimes it might be useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. Since the code should speak by itself, try to keep this section as short and simple as possible.
-
-Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
 
 ---
 ## Test
 
-There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
-
-In this section it is only expected to include the following:
-* test plan describing the list of features to be tested and the testing methods and tools;
-* test case specifications to verify the functionalities, using unit tests and acceptance tests.
- 
-A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
-
 ---
 ## Configuration and change management
 
-Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
-
-For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
-
-
----
-
 ## Project management
 
-Software project management is an art and science of planning and leading software projects, in which software projects are planned, implemented, monitored and controlled.
-
-In the context of ESOF, we expect that each team adopts a project management tool capable of registering tasks, assign tasks to people, add estimations to tasks, monitor tasks progress, and therefore being able to track their projects.
-
-Example of tools to do this are:
-  * [Trello.com](https://trello.com)
-  * [Github Projects](https://github.com/features/project-management/com)
-  * [Pivotal Tracker](https://www.pivotaltracker.com)
-  * [Jira](https://www.atlassian.com/software/jira)
-
-We recommend to use the simplest tool that can possibly work for the team.
-
-
----
 
 ## Evolution - contributions to open-cx
-
-Describe your contribution to open-cx (iteration 5), linking to the appropriate pull requests, issues, documentation.
