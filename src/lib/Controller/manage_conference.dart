@@ -55,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       if(firstDateTime.month == secondDateTime.month){
         if(firstDateTime.day == secondDateTime.day){
           if(firstDateTime.hour == secondDateTime.hour){
-            if(firstDateTime.minute > secondDateTime.minute) return false;
+            if(firstDateTime.minute >= secondDateTime.minute) return false;
             else return true;
           }
           else if (firstDateTime.hour > secondDateTime.hour) return false;
@@ -82,7 +82,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Invalid Input"),
-      content: Text("The dates selected are not valid"),
+      content: Text("Either dates selected are not valid or name and/or location are empty."),
       actions: [
         okButton,
       ],
@@ -206,7 +206,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             this.palestra.firstDate.day, this.palestra.firstDate.hour, this.palestra.firstDate.min);
           if(_secondDateTime == null) _secondDateTime= DateTime(this.palestra.secondDate.year, this.palestra.secondDate.month,
             this.palestra.secondDate.day, this.palestra.secondDate.hour, this.palestra.secondDate.min);
-          if (verifyDates(_firstDateTime, _secondDateTime)) {
+          if (verifyDates(_firstDateTime, _secondDateTime) && nameController.text != "" && locationController.text != "") {
             this.database.editPalestra(this.palestra, nameController.text,
             new Date(_firstDateTime.year, _firstDateTime.month,
               _firstDateTime.day, _firstDateTime.hour,
