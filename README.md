@@ -43,7 +43,7 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 
 ### Use case diagram
 
-![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.jpeg)
+![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.png)
 
 <p>
 
