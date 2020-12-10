@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import '../Model/palestra.dart';
 import '../Model/user.dart';
+import '../database.dart';
+import '../Controller/add_conference.dart';
+import '../Controller/reservation_page.dart';
+import '../Controller/reserved.dart';
 
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
   final User _user;
   final int _index;
+  final Database _database;
 
-  PalestraView(this._palestra, this._user, this._index);
+  PalestraView(this._palestra, this._user, this._index, this._database);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +42,7 @@ class PalestraView extends StatelessWidget {
                           width: 20,
                         ),
                         Icon(
-                          IconData(62168, fontFamily: 'MaterialIcons'),
+                          const IconData(62168, fontFamily: 'MaterialIcons'),
                           color: Colors.white,
                           size: 30,
                           semanticLabel: 'Location',
@@ -56,7 +61,7 @@ class PalestraView extends StatelessWidget {
                           width: 20,
                         ),
                         Icon(
-                          IconData(58915, fontFamily: 'MaterialIcons'),
+                          const IconData(58915, fontFamily: 'MaterialIcons'),
                           color: Colors.white,
                           size: 30,
                           semanticLabel: 'Date',
@@ -83,7 +88,7 @@ class PalestraView extends StatelessWidget {
                         width: 20,
                       ),
                       Icon(
-                        IconData(0xe55b, fontFamily: 'MaterialIcons'),
+                        const IconData(0xe55b, fontFamily: 'MaterialIcons'),
                         color: Colors.white,
                         size: 30,
                         semanticLabel: 'Time',
@@ -102,25 +107,10 @@ class PalestraView extends StatelessWidget {
                       ),
                     ],
                   )),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 330,
-                      ),
-                      Container(
-                        decoration: ShapeDecoration(
-                          color: this._palestra.isFull(),
-                          shape: CircleBorder(),
-                        ),
-                        width: 15,
-                        height: 10,
-                      ),
-                    ],
-                  ),
                 ],
               ),
               decoration: BoxDecoration(
-                color: Color(0xFF98C1D9),
+                color: this._palestra.isFull(),
                 border: Border.all(
                   color: Colors.white,
                   width: 5,
@@ -131,8 +121,28 @@ class PalestraView extends StatelessWidget {
               width: 1000,
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
-            if (this._index == 0) {
-              this._user.addPalestraGoing(this._palestra);
+            if (this._user.isAdmin()) {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          AddConference(this._user, this._database)));
+            } else {
+              if (this._index == 0) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ReservationPage(
+                          this._palestra, this._user, this._database)),
+                );
+              } else if (this._index == 1) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ReservedPage(
+                          this._palestra, this._user, this._database)),
+                );
+              }
             }
           },
         ),
