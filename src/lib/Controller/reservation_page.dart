@@ -106,7 +106,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           (this.palestra.getSeats()[i] != 1)) color_seat = Colors.green[500];
       seatsList.add(IconButton(
         icon: Icon(
-          IconData(59147, fontFamily: 'MaterialIcons'),
+          const IconData(59147, fontFamily: 'MaterialIcons'),
           size: 30,
           color: color_seat,
         ),
@@ -154,7 +154,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         width: 20,
                       ),
                       Icon(
-                        IconData(62168, fontFamily: 'MaterialIcons'),
+                        const IconData(62168, fontFamily: 'MaterialIcons'),
                         color: Colors.white,
                         size: 30,
                         semanticLabel: 'Location',
@@ -173,7 +173,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         width: 20,
                       ),
                       Icon(
-                        IconData(58915, fontFamily: 'MaterialIcons'),
+                        const IconData(58915, fontFamily: 'MaterialIcons'),
                         color: Colors.white,
                         size: 30,
                         semanticLabel: 'Date',
@@ -200,7 +200,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       width: 20,
                     ),
                     Icon(
-                      IconData(0xe55b, fontFamily: 'MaterialIcons'),
+                      const IconData(0xe55b, fontFamily: 'MaterialIcons'),
                       color: Colors.white,
                       size: 30,
                       semanticLabel: 'Time',
@@ -231,6 +231,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 
+  Container getGoBackButton(BuildContext context) {
+    return Container(
+      child: IconButton(
+        color: Colors.white,
+        icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MainPage(this.user, this.database)),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -239,20 +255,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              child: IconButton(
-                color: Colors.white,
-                icon: Icon(IconData(61562, fontFamily: 'MaterialIcons')),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            MainPage(this.user, this.database)),
-                  );
-                },
-              ),
-            ),
+            getGoBackButton(context),
             Container(
               child: Image.asset(
                 'images/logo.png',

@@ -36,29 +36,27 @@ class PalestraView extends StatelessWidget {
                   ),
                   // Location
                   Container(
-                    child: Row(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Icon(
-                          IconData(62168, fontFamily: 'MaterialIcons'),
+                    child: Row(children: <Widget>[
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Icon(
+                        const IconData(62168, fontFamily: 'MaterialIcons'),
+                        color: Colors.white,
+                        size: 30,
+                        semanticLabel: 'Location',
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        this._palestra.location,
+                        style: TextStyle(
                           color: Colors.white,
-                          size: 30,
-                          semanticLabel: 'Location',
+                          fontSize: 23,
                         ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          this._palestra.location,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                          ),
-                        ),
-                        ]
-                    ),
+                      ),
+                    ]),
                     padding: EdgeInsets.only(bottom: 10),
                   ),
                   Container(
@@ -68,7 +66,7 @@ class PalestraView extends StatelessWidget {
                           width: 20,
                         ),
                         Icon(
-                          IconData(58915, fontFamily: 'MaterialIcons'),
+                          const IconData(58915, fontFamily: 'MaterialIcons'),
                           color: Colors.white,
                           size: 30,
                           semanticLabel: 'Date',
@@ -170,8 +168,8 @@ class PalestraView extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          ManageConference(this._palestra, this._user, this._database)));
+                      builder: (context) => ManageConference(
+                          this._palestra, this._user, this._database)));
             } else {
               if (this._index == 0) {
                 Navigator.pushReplacement(

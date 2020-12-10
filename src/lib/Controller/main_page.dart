@@ -83,7 +83,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Container(
             child: IconButton(
               icon: Icon(
-                IconData(59828, fontFamily: 'MaterialIcons'),
+                const IconData(59828, fontFamily: 'MaterialIcons'),
                 size: 40,
               ),
               color: Colors.white,
@@ -193,7 +193,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ],
               icon: Icon(
-                IconData(59648, fontFamily: 'MaterialIcons'),
+                const IconData(59648, fontFamily: 'MaterialIcons'),
                 size: 50,
                 color: Colors.white,
               ),
@@ -210,13 +210,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              IconData(59147, fontFamily: 'MaterialIcons'),
+              const IconData(59147, fontFamily: 'MaterialIcons'),
             ),
             label: 'All Conferences',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              IconData(59171,
+              const IconData(59171,
                   fontFamily: 'MaterialIcons', matchTextDirection: true),
             ),
             label: 'My Conferences',

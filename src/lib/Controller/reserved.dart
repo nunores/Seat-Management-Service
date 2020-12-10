@@ -111,7 +111,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
       seatsList.add(IconButton(
         icon: Icon(
-          IconData(59147, fontFamily: 'MaterialIcons'),
+          const IconData(59147, fontFamily: 'MaterialIcons'),
           size: 30,
           color: color_seat,
         ),
@@ -151,7 +151,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         width: 20,
                       ),
                       Icon(
-                        IconData(62168, fontFamily: 'MaterialIcons'),
+                        const IconData(62168, fontFamily: 'MaterialIcons'),
                         color: Colors.white,
                         size: 30,
                         semanticLabel: 'Location',
@@ -170,7 +170,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         width: 20,
                       ),
                       Icon(
-                        IconData(58915, fontFamily: 'MaterialIcons'),
+                        const IconData(58915, fontFamily: 'MaterialIcons'),
                         color: Colors.white,
                         size: 30,
                         semanticLabel: 'Date',
@@ -197,7 +197,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       width: 20,
                     ),
                     Icon(
-                      IconData(0xe55b, fontFamily: 'MaterialIcons'),
+                      const IconData(0xe55b, fontFamily: 'MaterialIcons'),
                       color: Colors.white,
                       size: 30,
                       semanticLabel: 'Time',
@@ -239,7 +239,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
               child: IconButton(
                 color: Colors.white,
-                icon: Icon(IconData(61562, fontFamily: 'MaterialIcons')),
+                icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,

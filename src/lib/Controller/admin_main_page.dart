@@ -84,7 +84,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Container(
             child: IconButton(
               icon: Icon(
-                IconData(59828, fontFamily: 'MaterialIcons'),
+                const IconData(59828, fontFamily: 'MaterialIcons'),
                 size: 40,
               ),
               color: Colors.white,
@@ -188,7 +188,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ],
               icon: Icon(
-                IconData(59648, fontFamily: 'MaterialIcons'),
+                const IconData(59648, fontFamily: 'MaterialIcons'),
                 size: 50,
                 color: Colors.white,
               ),
@@ -202,17 +202,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: getWidgetOptions().elementAt(_selectedIndex),
       ),
       floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              print(this.user);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => AddConference(this.user,  this.database)),
-              );
-            },
-            child: Icon(IconData(58727, fontFamily: 'MaterialIcons')),
-            backgroundColor: Color(0xFF98C1D9),
-          ),
+        onPressed: () {
+          print(this.user);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AddConference(this.user, this.database)),
+          );
+        },
+        child: Icon(const IconData(58727, fontFamily: 'MaterialIcons')),
+        backgroundColor: Color(0xFF98C1D9),
+      ),
     );
   }
 }

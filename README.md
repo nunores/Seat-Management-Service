@@ -71,15 +71,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.png)
-
-<p>
-**1. Register**</br>
-**Actor: ** User</br>
-**Description: ** </br>
-**Preconditions and Postconditions: ** </br>
-**Normal Flow: ** </br>
-**Alternative Flows and Exceptions: **</br>
+![Use Case Diagram](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/ESOF.jpeg)
 
 <!-- Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
 
