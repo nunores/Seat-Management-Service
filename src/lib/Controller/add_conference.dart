@@ -243,24 +243,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       width: 700,
       margin: EdgeInsets.symmetric(horizontal: 70),
     );
-
-    Container getGoBackButton(BuildContext context) {
-      return Container(
-        child: IconButton(
-          color: Colors.white,
-          icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      MainPageAdmin(this.user, this.database)),
-            );
-          },
-        ),
-      );
-    }
-
+    
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -268,7 +251,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            getGoBackButton(context),
             Container(
               child: IconButton(
                 color: Colors.white,
