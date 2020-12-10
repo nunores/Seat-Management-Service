@@ -2,14 +2,20 @@ import 'package:flutter/material.dart';
 import 'date.dart';
 
 class Palestra {
-  final String name;
-  final Date firstDate;
-  final Date secondDate;
-  final String location;
+  String name;
+  Date firstDate;
+  Date secondDate;
+  String location;
   final bool full;
+  final List<int> seats;
 
-  Palestra(
-      this.name, this.firstDate, this.secondDate, this.location, this.full);
+  Palestra(this.name, this.firstDate, this.secondDate, this.location, this.full,
+      this.seats);
+
+  void setName(String name){ this.name = name;}
+  void setFisrtDate(Date date){ this.firstDate = date;}
+  void setSecondDate(Date date){ this.secondDate = date;}
+  void setLocation(String location){ this.location = location;}
 
   String getSearchResult() {
     return this.name +
@@ -25,10 +31,22 @@ class Palestra {
         this.name.toLowerCase();
   }
 
+  bool getIsFull() {
+    return full;
+  }
+  String getName() {
+    return name;
+  }
+
   Color isFull() {
     if (this.full) {
-      return Colors.red[600];
+      return Colors.red[300];
     }
-    return Colors.green[700];
+    return Colors.green[300];
+  }
+
+  List<int> getSeats() {
+    return seats;
   }
 }
+
