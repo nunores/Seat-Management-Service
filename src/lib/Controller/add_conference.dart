@@ -4,8 +4,7 @@ import 'package:Seat_Manager/Model/user.dart';
 import 'package:flutter/material.dart';
 import '../database.dart';
 import '../main.dart';
-import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
-import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 
 import 'admin_main_page.dart';
 
@@ -44,69 +43,100 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   _MyStatefulWidgetState(this.user, this.database);
 
-  DateTime _selectedDate;
-  DateTime _dateTimeBegin;
-  DateTime _dateTimeEnd;
+  DateTime _firstDateTime;
+  DateTime _secondDateTime;
 
   TextEditingController nameController = new TextEditingController();
   TextEditingController locationController = new TextEditingController();
+
+  verifyDates(firstDateTime, secondDateTime){
+    if (firstDateTime.year == secondDateTime.year){
+      if(firstDateTime.month == secondDateTime.month){
+        if(firstDateTime.day == secondDateTime.day){
+          if(firstDateTime.hour == secondDateTime.hour){
+            if(firstDateTime.minute > secondDateTime.minute) return false;
+            else return true;
+          }
+          else if (firstDateTime.hour > secondDateTime.hour) return false;
+          else return true;
+        }
+        else if (firstDateTime.day > secondDateTime.day) return false;
+        else return true;
+      }
+      else if (firstDateTime.month > secondDateTime.month) return false;
+      else return true;
+    }
+    else if (firstDateTime.year > secondDateTime.year) return false;
+    else return true;
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    /*AlertDialog alert = AlertDialog(
+      title: Text("Invalid Input"),
+      content: Text("The dates selected are not valid"),
+      actions: [
+        okButton,
+      ],
+    );*/
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+                title: Text("Invalid Input"),
+                content: Text("The dates selected are not valid"),
+                actions: [okButton,
+                ],);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     Container datePicker = Container(
       height: 170,
       padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: DatePickerWidget(
-        looping: false, // default is not looping
-        firstDate: DateTime.now(), //DateTime(1960),
-        //  lastDate: DateTime(2002, 1, 1),
-//              initialDate: DateTime.now(),// DateTime(1994),
-        initialDate: DateTime.now(),
-        lastDate: DateTime(2022, 12, 31),
-        dateFormat: "dd-MMMM-yyyy",
-        //   "dd-MMMM-yyyy",
-        //     locale: DatePicker.localeFromString('he'),
-        onChange: (DateTime newDate, _) {
-          _selectedDate = newDate;
-          print(_selectedDate);
-        },
-        pickerTheme: DateTimePickerTheme(
-          itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
-          dividerColor: Colors.blue,
-          backgroundColor: Color(0xFF98C1D9),
-        ),
-      ),
-    );
+      child: Column(
+        children:
+          [
+            DateTimePicker(
+              type: DateTimePickerType.dateTimeSeparate,
+              dateMask: 'd MMM, yyyy',// default is not looping
+              initialValue: DateTime.now().toString(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime(2100),
 
-    Container hourPicker = Container(
-      child: Row(
-          children: [
-            SizedBox( width: 70),
-            TimePickerSpinner(
-              isForce2Digits: true,
-              is24HourMode: true,
-              spacing: 5,
-              minutesInterval: 1,
-              onTimeChange: (time) {
-              setState(() {
-                _dateTimeBegin = time;
-              });
-              },),
-            SizedBox( width: 50),
-            TimePickerSpinner(
-              isForce2Digits: true,
-              is24HourMode: true,
-              spacing: 5,
-              minutesInterval: 1,
-              onTimeChange: (time) {
-                setState(() {
-                  _dateTimeEnd = time;
-                });
-              },),
+              icon: Icon(Icons.event),
+              dateLabelText: 'Date',
+              timeLabelText: 'Hour',
+              onChanged: (date) => _firstDateTime = DateTime.parse(date),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            DateTimePicker(
+                type: DateTimePickerType.dateTimeSeparate,
+                dateMask: 'd MMM, yyyy',// default is not looping
+                initialValue: DateTime.now().toString(),
+                firstDate: DateTime(2020),
+                lastDate: DateTime(2100),
 
-      //height: 50,
-      ]
-      ),
+                icon: Icon(Icons.event),
+                dateLabelText: 'Date',
+                timeLabelText: 'Hour',
+                onChanged: (date) => _secondDateTime = DateTime.parse(date),
+            )
+          ]
+      )
     );
 
     Container nomeField = Container(
@@ -116,7 +146,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         controller: nameController,
         obscureText: false,
         decoration: InputDecoration(
-          hintText: 'Palestra',
+          hintText: 'Conference',
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 2),
             borderRadius: BorderRadius.all(Radius.circular(150)),
@@ -141,7 +171,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         controller: locationController,
         obscureText: false,
         decoration: InputDecoration(
-          hintText: 'Localização',
+          hintText: 'Location',
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 2),
             borderRadius: BorderRadius.all(Radius.circular(150)),
@@ -170,25 +200,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
-           var newPalestra = new Palestra(
+          if (verifyDates(_firstDateTime, _secondDateTime)) {
+            var newPalestra = new Palestra(
                 nameController.text,
-               new Date(_selectedDate.year, _selectedDate.month, _selectedDate.day, _dateTimeBegin.hour, _dateTimeBegin.minute),
-               new Date(_selectedDate.year, _selectedDate.month, _selectedDate.day, _dateTimeEnd.hour, _dateTimeEnd.minute),
-               locationController.text,
-               false, this.database.generateSeats());
+                new Date(_firstDateTime.year, _firstDateTime.month,
+                    _firstDateTime.day, _firstDateTime.hour,
+                    _firstDateTime.minute),
+                new Date(_secondDateTime.year, _secondDateTime.month,
+                    _secondDateTime.day, _secondDateTime.hour,
+                    _secondDateTime.minute),
+                locationController.text,
+                false, this.database.generateSeats());
 
-          print(this.user);
-          this.database.addPalestra(newPalestra);
+            this.database.addPalestra(newPalestra);
 
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      MainPageAdmin(this.user, this.database)));
-
-        },
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        MainPageAdmin(this.user, this.database)));
+          } else{
+            showAlertDialog(context);
+          }
+          },
         child: Text(
-          "Add Palestra",
+          "Add Conference",
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
@@ -197,7 +233,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       margin: EdgeInsets.symmetric(horizontal: 70),
     );
 
-
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -205,6 +240,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Container(
+              child: IconButton(
+                color: Colors.white,
+                icon: Icon(IconData(61562, fontFamily: 'MaterialIcons')),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            MainPageAdmin(this.user, this.database)),
+                  );
+                },
+              ),
+            ),
             Container(
               child: Image.asset(
                 'images/logo.png',
@@ -224,9 +273,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MyHomePage(
-                                  database: this.database,
-                                )));
+                            builder: (context) => AddConference(user, database)));
                   }
                 });
               },
@@ -251,17 +298,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       body: Column(
         children: [
           SizedBox(
-            height: 50,
+            height: 60,
           ),
           nomeField,
           SizedBox(
             height: 40,
           ),
           locationField,
-          datePicker,
-          hourPicker,
           SizedBox(
-            height:50,
+            height:40,
+          ),
+          datePicker,
+          SizedBox(
+            height:70,
           ),
           addButton,
         ],

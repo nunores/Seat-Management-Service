@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'date.dart';
 
 class Palestra {
-  final String name;
-  final Date firstDate;
-  final Date secondDate;
-  final String location;
+  String name;
+  Date firstDate;
+  Date secondDate;
+  String location;
   final bool full;
   final List<int> seats;
 
   Palestra(this.name, this.firstDate, this.secondDate, this.location, this.full,
       this.seats);
+
+  void setName(String name){ this.name = name;}
+  void setFisrtDate(Date date){ this.firstDate = date;}
+  void setSecondDate(Date date){ this.secondDate = date;}
+  void setLocation(String location){ this.location = location;}
 
   String getSearchResult() {
     return this.name +

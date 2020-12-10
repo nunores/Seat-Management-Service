@@ -7,16 +7,16 @@ class Database {
 
   Database() {
     palestras = [
-      new Palestra("Palestra #1", new Date(2000, 12, 2, 12, 30),
-          new Date(2000, 12, 2, 14, 30), "Viseu", false, generateSeats()),
-      new Palestra("Palestra #2", new Date(2000, 12, 2, 12, 30),
-          new Date(2000, 12, 2, 14, 30), "Viseu", false, generateSeats()),
-      new Palestra("Palestra #3", new Date(2000, 12, 2, 12, 30),
-          new Date(2000, 12, 2, 14, 30), "Porto", false, generateSeats()),
-      new Palestra("Palestra #3", new Date(2000, 12, 2, 12, 30),
-          new Date(2000, 12, 2, 14, 30), "Porto", false, generateSeats()),
-      new Palestra("Palestra #3", new Date(2000, 12, 2, 12, 30),
-          new Date(2000, 12, 2, 14, 30), "Porto", false, generateSeats()),
+      new Palestra("Palestra #1", new Date(2020, 12, 2, 12, 30),
+          new Date(2020, 12, 2, 14, 30), "Viseu", false, generateSeats()),
+      new Palestra("Palestra #2", new Date(2020, 12, 2, 12, 30),
+          new Date(2020, 12, 2, 14, 30), "Viseu", false, generateSeats()),
+      new Palestra("Palestra #3", new Date(2020, 12, 2, 12, 30),
+          new Date(2020, 12, 2, 14, 30), "Porto", false, generateSeats()),
+      new Palestra("Palestra #3", new Date(2020, 12, 2, 12, 30),
+          new Date(2020, 12, 2, 14, 30), "Porto", false, generateSeats()),
+      new Palestra("Palestra #3", new Date(2020, 12, 2, 12, 30),
+          new Date(2020, 12, 2, 14, 30), "Porto", false, generateSeats()),
     ];
   }
 
@@ -36,6 +36,17 @@ class Database {
   void addPalestra(Palestra palestra) {
     print(palestra);
     palestras.add(palestra);
+  }
+
+  void editPalestra(Palestra palestra, String name, Date firstDate, Date secondDate, String location){
+      palestra.setName(name);
+      palestra.setLocation(location);
+      palestra.setFisrtDate(firstDate);
+      palestra.setSecondDate(secondDate);
+  }
+
+  void removePalestra(Palestra palestra){
+      palestras.remove(palestra);
   }
 
   List<Palestra> removePalestras(String text, User user) {
