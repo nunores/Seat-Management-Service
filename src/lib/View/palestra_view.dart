@@ -160,7 +160,7 @@ class PalestraView extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(30),
               ),
-              height: 185,
+              height: 205,
               width: 1000,
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
