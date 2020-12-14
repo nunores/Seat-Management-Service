@@ -1,10 +1,10 @@
-import 'package:Seat_Manager/Controller/manage_conference.dart';
 import 'package:flutter/material.dart';
 import '../Model/palestra.dart';
 import '../Model/user.dart';
 import '../database.dart';
 import '../Controller/reservation_page.dart';
 import '../Controller/reserved.dart';
+import '../Controller/sanitize_page.dart';
 
 class PalestraView extends StatelessWidget {
   final Palestra _palestra;
@@ -16,6 +16,14 @@ class PalestraView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color color;
+
+    if (this._user.isGoing(this._palestra)) {
+      color = Color(0xFFF3D082);
+    } else {
+      color = this._palestra.isFull();
+    }
+
     return Column(
       children: [
         InkWell(
@@ -32,7 +40,8 @@ class PalestraView extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(top: 10, left: 25, bottom: 10),
+                    padding: EdgeInsets.only(
+                        top: 10, left: 25, bottom: 10, right: 25),
                   ),
                   // Location
                   Container(
@@ -153,14 +162,13 @@ class PalestraView extends StatelessWidget {
                 ],
               ),
               decoration: BoxDecoration(
-                color: this._palestra.isFull(),
+                color: color,
                 border: Border.all(
                   color: Colors.white,
                   width: 5,
                 ),
                 borderRadius: BorderRadius.circular(30),
               ),
-              height: 205,
               width: 1000,
               margin: EdgeInsets.symmetric(horizontal: 20)),
           onTap: () {
@@ -168,24 +176,22 @@ class PalestraView extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ManageConference(
+                      builder: (context) => SanitizationPage(
                           this._palestra, this._user, this._database)));
+            } else if (this._user.isGoing(this._palestra)) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ReservedPage(
+                        this._palestra, this._user, this._database)),
+              );
             } else {
-              if (this._index == 0) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ReservationPage(
-                          this._palestra, this._user, this._database)),
-                );
-              } else if (this._index == 1) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ReservedPage(
-                          this._palestra, this._user, this._database)),
-                );
-              }
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ReservationPage(
+                        this._palestra, this._user, this._database)),
+              );
             }
           },
         ),
