@@ -202,7 +202,7 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 ![User Story Map](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/user_story_map.png)
 <p> 
 
-As an atendee, I want to be able to see the seat availability for each conference, so that I can choose a seat, if available, to reserve .<br>
+As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
 **Value:** Must-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
