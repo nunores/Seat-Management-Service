@@ -83,9 +83,15 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Preconditions and Postconditions:** To be redirected to the register page, the atendee must be logged out and in the initial screen (login) and click the phrase 'Register Here' bellow the button 'Log in'. After the atendee registers, the login is automatically done. <br>
 **Normal Flow:**<br>
 1. If the atendee doesn't have an account, they may press the 'Register' button.
-2. A page will appear where the atendee inserts his account information.
+2. A page will appear where the atendee inserts his account's information.
 3. The atendee presses the button 'Register'.
 4. The app redirects the atendee to their new account, and opens the folder 'All Conferences', where all events are shown.
+**Alternative Flows and Exceptions:**<br>
+1. If the atendee doesn't have an account, they may press the 'Register' button.
+2. A page will appear where the atendee inserts his account's information.
+3. The atendee presses the button 'Register'.
+4. If a field does not have any information, or if the password and confirm password are not the same, a message of error appears on the screen.
+5. The user may press the button 'Ok' and return to the register screen.
 </p>
 
 <p>
@@ -196,7 +202,7 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 ![User Story Map](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/user_story_map.png)
 <p> 
 
-As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
+As an atendee, I want to be able to see the seat availability for each conference, so that I can choose a seat, if available, to reserve .<br>
 **Value:** Must-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
@@ -276,8 +282,11 @@ As the administration, I want to be able to manage the conferences, so that I or
 
 **Scenario**: Managing conferences.
 
-* **Given** that I am part of the administration and I want to create a conference
+* **Given** that I am part of the administration and I want to create or edit a conference
   **When** when I insert a date to the end of the conference that is smaller than the date to the begin of the conference, **then** the program prints an error message.
+
+* **Given** that I am part of the administration and I want to create or edit a conference
+  **When** when I don't define a name or location for the conference, **then** the program prints an error message..
 
 **User interface mockups:** <br>
 
