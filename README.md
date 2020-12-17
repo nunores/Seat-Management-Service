@@ -71,7 +71,8 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Preconditions and Postconditions:** After doing logout the user can no longer access the account's information.<br>
 **Normal Flow:**<br>
 1. The user presses the perfil icon in the upper bar.
-2. The user the presses the button 'Log Out'.
+2. The user presses the button 'Log Out'.
+3. The user returns to the login screen.
 </p>
 
 <p>
@@ -79,11 +80,18 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Register**<br>
 **Actor:** Atendee.<br>
 **Description:** This use case exists so that the atendees can create an account with an username and a password of their choice.<br>
-**Preconditions and Postconditions:** After the atendee registers, the login is automatically done. <br>
+**Preconditions and Postconditions:** To be redirected to the register page, the atendee must be logged out and in the initial screen (login) and click the phrase 'Register Here' bellow the button 'Log in'. After the atendee registers, the login is automatically done. <br>
 **Normal Flow:**<br>
-1. If the atendee doesn't have an account, the atendee presses the 'Register' button.
-2. A page will appear where the atendee inserts his account information.
-3. The atende presses the button 'Register'
+1. If the atendee doesn't have an account, they may press the 'Register' button.
+2. A page will appear where the atendee inserts his account's information.
+3. The atendee presses the button 'Register'.
+4. The app redirects the atendee to their new account, and opens the folder 'All Conferences', where all events are shown.
+**Alternative Flows and Exceptions:**<br>
+1. If the atendee doesn't have an account, they may press the 'Register' button.
+2. A page will appear where the atendee inserts his account's information.
+3. The atendee presses the button 'Register'.
+4. If a field does not have any information, or if the password and confirm password are not the same, a message of error appears on the screen.
+5. The user may press the button 'Ok' and return to the register screen.
 </p>
 
 <p>
@@ -91,11 +99,12 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Make a Reservation**<br>
 **Actor:** Atendee.<br>
 **Description:** An atendee must be able to make a reservation for a conference if there still are seats available for the session.<br>
-**Preconditions and Postconditions:** To be able to make a reservation, the atendee has to first select a conference and an available seat. After the reservation is made, the conference must appear in the atendee's 'My Conferences' and the seat must be shown as occupied for other users.<br>
+**Preconditions and Postconditions:** To be able to make a reservation, the atendee has to first select a conference and an available seat. After the reservation is made, the conference must be added in the atendee's 'My Conferences' and the seat must be shown as occupied for other users.<br>
 **Normal Flow:**<br>
-1. The atendee chooses a seat that is shown as available (colored green).
-2. The atendee presses the button 'Reserve the seat'.
-3. The application returns to the folder "All Conferences".
+1. The atendee must first select a conference in the folder 'All Conferences', shown as still having available seats, that is, associated to the color green.
+2. The atendee chooses a seat that is shown as available, also colored green.
+3. The atendee presses the button 'Reserve the seat'.
+4. The application returns to the folder "All Conferences", where the now reserved event is painted yellow.
 </p>
 
 <p>
@@ -105,8 +114,9 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Description:** An atendee must be able to cancel a reservation for a conference they had made a reservation on.<br>
 **Preconditions and Postconditions:** To be able to cancel a reservation, the atendee has to have made a reservation to the conference. After the reservation is cancelled, the conference must not appear in the atendee's 'My Conferences' and the seat must be shown as free for other users.<br>
 **Normal Flow:**<br>
+1. The atendee must first select a conference in which they already have a reserved seat, that is, associated to the color yellow.
 1. The atendee presses the button 'Cancel the reservation'.
-2. The application returns to the folder "All Conferences".
+2. The application returns to the folder "All Conferences", where the event now appears in a green background.
 </p>
 
 **See conferences atendee is going to**<br>
@@ -115,6 +125,9 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Normal Flow:**<br>
 1. The atendee presses the folder 'My Conferences' in the bottom of the page.
 2. The information from all the conferences that the atendee has reserved is shown on the screen.
+**Alternative Flows and Exceptions:**<br>
+1. The atendee presses the folder 'My Conferences' in the bottom of the page.
+2. If the atendde does not have any reservation, the folder with be empty.
 </p>
 
 <p>
@@ -133,35 +146,37 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 1. The administration presses the floating button in the bottom of the screen.
 2. The name, location, and both dates and hours that define the conference must be introduced.
 3. The administration presses the button 'Add Conference'.
-4. If the first date is after the second date defined previously,  a message of error appears on the screen.
+4. If the first date is after the second date, a message of error appears on the screen. The same will happen if nothing is introduced in the fields name and location.
 5. The administration must press the button 'Ok' and return to the creation of a new conference.
 </p>
 
 **Delete Conference**<br>
 **Actor:** Administration.<br>
 **Description:** This use case exists so that the administration can delete an already existing conference.<br>
-**Preconditions and Postconditions:** After being deleted, the conference should disapear from the conference list.<br>
+**Preconditions and Postconditions:** The conference must exist to be deleted. After being deleted, the conference should disapear from the conference list.<br>
 **Normal Flow:**<br>
-1. The administration chooses a conference from the list.
-2. The administration presses the button 'Remove Conference'.
-3. The application shows the list of conferences where the conference is no longer present.
+1. The administration chooses a conference from the list presented to them.
+2. A page with the conferences information will appear o screen. The administration clicks the floating button in the bottom os the screen.
+3. The administration presses the button 'Remove Conference'.
+4. The application shows the list of conferences where the conference is no longer present.
 </p>
 
 **Edit Conference**<br>
 **Actor:** Administration.<br>
 **Description:** This use case exists so that the administration can edit the details of an already existing conference.<br>
-**Preconditions and Postconditions:** After being edited, the conference must appear in the list of conferences with the altered information.<br>
+**Preconditions and Postconditions:** The conference must exist , for it to be edited. After being edited, the conference must appear in the list of conferences with the altered information.<br>
 **Normal Flow:**<br>
-1.  The administration chooses a conference from the list.
-2. The name, location, and both dates and hours that define the conference may be altered.
-3. The administration presses the button 'Edit Conference'.
-4. The application shows the list of conferences where the conference is now present with the new information.
+1. The administration chooses a conference from the list presented to them.
+2. A page with the conferences information will appear o screen. The administration clicks the floating button in the bottom os the screen.
+3. The name, location, and both dates and hours that define the conference may be altered.
+4. The administration presses the button 'Edit Conference'.
+5. The application shows the list of conferences where the conference is now present with the new information.
 
 **Alternative Flows and Exceptions:**<br>
 1. The administration presses the floating button in the bottom of the screen.
 2. The name, location, and both dates and hours that define the conference must be may be altered.
 3. The administration presses the button 'Edit Conference'.
-4. If the first date is after the second date defined previously,  a message of error appears on the screen.
+4. If the first date is after the second date defined previously, a message of error appears on the screen. The same will happen if either the field name or location is left without any information.
 5. The administration must press the button 'Ok' and return to the creation of a new conference.
 </p>
 
@@ -170,20 +185,24 @@ Nowadays, due to COVID-19, everyone is afraid of attending conferences because w
 **Manage Conference Room Layout**<br>
 **Actor:** Administration.<br>
 **Description:** This use case exists so that the administration can change a room layout, increasing or decreasing the number of seats.<br>
+
 </p>
 
 <p>
 
 **See seats that need to be sanitized**<br>
 **Actor:** Administration.<br>
-**Description:** The administration must be able to know which seats have been used by atendees and, therefore, need to be sanitized.<br>
+**Description:** The administration must be able to know which seats have been used by atendees and, therefore, will need to be sanitized.<br>
+**Normal Flow:**<br>
+1. The administration chooses a conference from the list presented to them.
+2. A page with the conferences information will appear o screen. The seat arrangement appears on screen. 
 </p>
 
 ### User stories
 ![User Story Map](https://github.com/FEUP-ESOF-2020-21/open-cx-t6g2-sms/blob/master/docs/user_story_map.png)
 <p> 
 
-As an atendee, I want to be able to see the seat availability for each conference, so that I can consider all options.<br>
+As an atendee, I want to be to cancel a reservation once I've made one, so that I'm free to back away from that commitment.<br>
 **Value:** Must-Have<br>
 **Effort:** L<br>
 **Acceptance Tests:**<br>
@@ -263,8 +282,11 @@ As the administration, I want to be able to manage the conferences, so that I or
 
 **Scenario**: Managing conferences.
 
-* **Given** that I am part of the administration and I want to create a conference
+* **Given** that I am part of the administration and I want to create or edit a conference
   **When** when I insert a date to the end of the conference that is smaller than the date to the begin of the conference, **then** the program prints an error message.
+
+* **Given** that I am part of the administration and I want to create or edit a conference
+  **When** when I don't define a name or location for the conference, **then** the program prints an error message..
 
 **User interface mockups:** <br>
 
