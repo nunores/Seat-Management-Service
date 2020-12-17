@@ -7,16 +7,55 @@ class Database {
 
   Database() {
     palestras = [
-      new Palestra("Palestra #1", new Date(2020, 12, 2, 12, 30),
-          new Date(2020, 12, 2, 14, 30), "Viseu", false, generateSeats()),
-      new Palestra("Palestra #2", new Date(2020, 12, 2, 12, 30),
-          new Date(2020, 12, 2, 14, 30), "Viseu", false, generateSeats()),
-      new Palestra("Palestra #3", new Date(2020, 12, 2, 12, 30),
-          new Date(2020, 12, 2, 14, 30), "Porto", false, generateSeats()),
-      new Palestra("Palestra #3", new Date(2020, 12, 2, 12, 30),
-          new Date(2020, 12, 2, 14, 30), "Porto", false, generateSeats()),
-      new Palestra("Palestra #3", new Date(2020, 12, 2, 12, 30),
-          new Date(2020, 12, 2, 14, 30), "Porto", false, generateSeats()),
+      new Palestra(
+          "3-D Digital Imaging and Modelling",
+          new Date(2020, 12, 23, 12, 30),
+          new Date(2020, 12, 23, 14, 30),
+          "Montreal",
+          false,
+          generateSeats()),
+      new Palestra(
+          "A Satellite workshop on Formal Approaches to Testing of Software",
+          new Date(2020, 12, 24, 17, 00),
+          new Date(2020, 12, 24, 19, 00),
+          "Vancouver",
+          false,
+          generateSeats()),
+      new Palestra(
+          "AAAI International Conference on Weblogs and Social Media",
+          new Date(2021, 3, 1, 13, 30),
+          new Date(2021, 3, 1, 17, 00),
+          "Nashville",
+          false,
+          generateSeats()),
+      new Palestra(
+          "Abstract State Machines Alloy B and Z",
+          new Date(2021, 3, 15, 09, 30),
+          new Date(2021, 3, 15, 11, 30),
+          "Xi'an",
+          false,
+          generateSeats()),
+      new Palestra(
+          "ACIS International Conference on Software Engineering Research Management and Applications",
+          new Date(2021, 3, 29, 18, 30),
+          new Date(2021, 3, 29, 20, 30),
+          "Vienna",
+          false,
+          generateSeats()),
+      new Palestra(
+          "ACM Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication",
+          new Date(2021, 3, 30, 19, 45),
+          new Date(2021, 3, 30, 21, 30),
+          "Yokohama",
+          false,
+          generateSeatsFull()),
+      new Palestra(
+          "Accelerating excellence in the built environment World Conference",
+          new Date(2021, 4, 15, 12, 30),
+          new Date(2021, 4, 15, 14, 30),
+          "Singapore",
+          false,
+          generateSeatsAlmostFull()),
     ];
   }
 
@@ -38,15 +77,16 @@ class Database {
     palestras.add(palestra);
   }
 
-  void editPalestra(Palestra palestra, String name, Date firstDate, Date secondDate, String location){
-      palestra.setName(name);
-      palestra.setLocation(location);
-      palestra.setFisrtDate(firstDate);
-      palestra.setSecondDate(secondDate);
+  void editPalestra(Palestra palestra, String name, Date firstDate,
+      Date secondDate, String location) {
+    palestra.setName(name);
+    palestra.setLocation(location);
+    palestra.setFisrtDate(firstDate);
+    palestra.setSecondDate(secondDate);
   }
 
-  void removePalestra(Palestra palestra){
-      palestras.remove(palestra);
+  void removePalestra(Palestra palestra) {
+    palestras.remove(palestra);
   }
 
   List<Palestra> removePalestras(String text, User user) {
@@ -54,8 +94,10 @@ class Database {
     int palestrasSize = palestrasTemp.length;
     if (text != "" || user.palestrasGoing.isNotEmpty) {
       for (var i = palestrasSize - 1; i >= 0; i--) {
-        if (!palestrasTemp[i].getSearchResult().contains(text) ||
-            user.isGoing(palestrasTemp[i])) {
+        if (!palestrasTemp[i].getSearchResult().contains(
+                text) /*  ||
+            user.isGoing(palestrasTemp[i]) */
+            ) {
           palestrasTemp.remove(palestrasTemp[i]);
         }
       }
@@ -181,6 +223,218 @@ class Database {
       0,
       -1,
       0,
+      -1,
+    ];
+
+    return result;
+  }
+
+  List<int> generateSeatsFull() {
+    List<int> result = new List<int>();
+    result = [
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+    ];
+
+    return result;
+  }
+
+  List<int> generateSeatsAlmostFull() {
+    List<int> result = new List<int>();
+    result = [
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
       -1,
       0,
       -1,

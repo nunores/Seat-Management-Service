@@ -3,7 +3,6 @@ import 'package:Seat_Manager/Model/palestra.dart';
 import 'package:Seat_Manager/Model/user.dart';
 import 'package:flutter/material.dart';
 import '../database.dart';
-import '../main.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 
 import 'admin_main_page.dart';
@@ -243,7 +242,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       width: 700,
       margin: EdgeInsets.symmetric(horizontal: 70),
     );
-    
+
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -265,18 +264,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 },
               ),
             ),
-            Container(
+/*             Container(
               child: Image.asset(
                 'images/logo.png',
                 fit: BoxFit.contain,
                 height: 55,
               ),
               margin: EdgeInsets.all(10),
-            ),
+            ), */
           ],
         ),
         actions: [
-          Container(
+/*           Container(
             child: PopupMenuButton(
               onSelected: (ProfileOptions result) {
                 setState(() {
@@ -303,7 +302,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             margin: EdgeInsets.only(right: 20),
-          )
+          ) */
         ],
       ),
       backgroundColor: Color(0xFF98C1D9),

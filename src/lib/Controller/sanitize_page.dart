@@ -1,17 +1,18 @@
+import 'package:Seat_Manager/Controller/admin_main_page.dart';
 import 'package:flutter/material.dart';
 import '../Model/user.dart';
 import '../Model/palestra.dart';
 import '../database.dart';
-import '../Controller/main_page.dart';
+import 'manage_conference.dart';
 
-class ReservedPage extends StatelessWidget {
-  static const String _title = 'Reserved Page';
+class SanitizationPage extends StatelessWidget {
+  static const String _title = 'Reservation Page';
 
   final Palestra palestra;
   final User user;
   final Database database;
 
-  ReservedPage(this.palestra, this.user, this.database);
+  SanitizationPage(this.palestra, this.user, this.database);
 
   @override
   Widget build(BuildContext context) {
@@ -55,46 +56,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 
-  Widget cancelButton() {
-    return Container(
-      child: FlatButton(
-        color: Color(0xFFEE6C4D),
-        textColor: Colors.white,
-        disabledColor: Colors.grey,
-        disabledTextColor: Colors.black,
-        padding: EdgeInsets.all(8.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(150)),
-        ),
-        onPressed: () {
-          int index = this.user.getIndexPalestra(this.palestra);
-          int seat = this.user.getSeatsReserved()[index];
-          this.user.palestrasGoing.removeAt(index);
-          this.user.seatsReserved.removeAt(index);
-
-          this.palestra.getSeats()[seat] = 0;
-
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => MainPage(this.user, this.database)));
-        },
-        child: Text(
-          "Cancel the reservation",
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-      ),
-      height: 50,
-      width: 700,
-      margin: EdgeInsets.symmetric(horizontal: 70),
-    );
-  }
-
   List<IconButton> getSeatsList() {
     List<IconButton> seatsList = List<IconButton>();
-
-    int index = this.user.getIndexPalestra(this.palestra);
-    int seat = this.user.getSeatsReserved()[index];
 
     for (var i = 0; i < 99; i++) {
       if (this.palestra.getSeats()[i] == -1) {
@@ -104,11 +67,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       } else if (this.palestra.getSeats()[i] == 1) {
         colorSeat = Colors.red[300];
       }
-
-      if (i == seat) {
-        colorSeat = Colors.black;
-      }
-
+      if ((idSelector == i) &&
+          (this.palestra.getSeats()[i] != -1) &&
+          (this.palestra.getSeats()[i] != 1)) colorSeat = Colors.green[500];
       seatsList.add(IconButton(
         icon: Icon(
           const IconData(59147, fontFamily: 'MaterialIcons'),
@@ -267,6 +228,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 
+  Container getGoBackButton(BuildContext context) {
+    return Container(
+      child: IconButton(
+        color: Colors.white,
+        icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MainPageAdmin(this.user, this.database)),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -275,28 +252,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              child: IconButton(
-                color: Colors.white,
-                icon: Icon(const IconData(61562, fontFamily: 'MaterialIcons')),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            MainPage(this.user, this.database)),
-                  );
-                },
-              ),
-            ),
-            /*Container(
+            getGoBackButton(context),
+/*             Container(
               child: Image.asset(
                 'images/logo.png',
                 fit: BoxFit.contain,
                 height: 55,
               ),
               margin: EdgeInsets.all(10),
-            ),*/
+            ), */
           ],
         ),
       ),
@@ -305,11 +269,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         children: [
           getPalestraInfo(),
           getSeats(),
-          cancelButton(),
           SizedBox(
             height: 70,
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print(this.user);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    ManageConference(this.palestra, this.user, this.database)),
+          );
+        },
+        child: Icon(const IconData(59109, fontFamily: 'MaterialIcons')),
+        backgroundColor: Color(0xFF293241),
       ),
     );
   }

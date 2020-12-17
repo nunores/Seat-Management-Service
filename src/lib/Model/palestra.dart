@@ -12,10 +12,21 @@ class Palestra {
   Palestra(this.name, this.firstDate, this.secondDate, this.location, this.full,
       this.seats);
 
-  void setName(String name){ this.name = name;}
-  void setFisrtDate(Date date){ this.firstDate = date;}
-  void setSecondDate(Date date){ this.secondDate = date;}
-  void setLocation(String location){ this.location = location;}
+  void setName(String name) {
+    this.name = name;
+  }
+
+  void setFisrtDate(Date date) {
+    this.firstDate = date;
+  }
+
+  void setSecondDate(Date date) {
+    this.secondDate = date;
+  }
+
+  void setLocation(String location) {
+    this.location = location;
+  }
 
   String getSearchResult() {
     return this.name +
@@ -32,14 +43,15 @@ class Palestra {
   }
 
   bool getIsFull() {
-    return full;
+    return !this.seats.contains(0);
   }
+
   String getName() {
     return name;
   }
 
   Color isFull() {
-    if (this.full) {
+    if (!this.seats.contains(0)) {
       return Colors.red[300];
     }
     return Colors.green[300];
@@ -49,4 +61,3 @@ class Palestra {
     return seats;
   }
 }
-

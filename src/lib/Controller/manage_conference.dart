@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../Model/user.dart';
 import '../Model/palestra.dart';
 import '../database.dart';
+import 'sanitize_page.dart';
 
 class ManageConference extends StatelessWidget {
   static const String _title = 'Edit Conference';
@@ -42,7 +43,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   User user;
   Database database;
 
-  Color color_seat = Colors.black;
+  Color colorSeat = Colors.black;
   int idSelector = -1;
 
   _MyStatefulWidgetState(this.palestra, this.user, this.database);
@@ -50,25 +51,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   DateTime _firstDateTime;
   DateTime _secondDateTime;
 
-  verifyDates(firstDateTime, secondDateTime){
-    if (firstDateTime.year == secondDateTime.year){
-      if(firstDateTime.month == secondDateTime.month){
-        if(firstDateTime.day == secondDateTime.day){
-          if(firstDateTime.hour == secondDateTime.hour){
-            if(firstDateTime.minute >= secondDateTime.minute) return false;
-            else return true;
-          }
-          else if (firstDateTime.hour > secondDateTime.hour) return false;
-          else return true;
-        }
-        else if (firstDateTime.day > secondDateTime.day) return false;
-        else return true;
-      }
-      else if (firstDateTime.month > secondDateTime.month) return false;
-      else return true;
-    }
-    else if (firstDateTime.year > secondDateTime.year) return false;
-    else return true;
+  verifyDates(firstDateTime, secondDateTime) {
+    if (firstDateTime.year == secondDateTime.year) {
+      if (firstDateTime.month == secondDateTime.month) {
+        if (firstDateTime.day == secondDateTime.day) {
+          if (firstDateTime.hour == secondDateTime.hour) {
+            if (firstDateTime.minute >= secondDateTime.minute)
+              return false;
+            else
+              return true;
+          } else if (firstDateTime.hour > secondDateTime.hour)
+            return false;
+          else
+            return true;
+        } else if (firstDateTime.day > secondDateTime.day)
+          return false;
+        else
+          return true;
+      } else if (firstDateTime.month > secondDateTime.month)
+        return false;
+      else
+        return true;
+    } else if (firstDateTime.year > secondDateTime.year)
+      return false;
+    else
+      return true;
   }
 
   showAlertDialog(BuildContext context) {
@@ -82,7 +89,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Invalid Input"),
-      content: Text("Either dates selected are not valid or name and/or location are empty."),
+      content: Text(
+          "Either dates selected are not valid or name and/or location are empty."),
       actions: [
         okButton,
       ],
@@ -97,49 +105,56 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    TextEditingController nameController = new TextEditingController(text: this.palestra.name);
-    TextEditingController locationController = new TextEditingController(text: this.palestra.location);
+    TextEditingController nameController =
+        new TextEditingController(text: this.palestra.name);
+    TextEditingController locationController =
+        new TextEditingController(text: this.palestra.location);
     Container datePicker = Container(
         height: 170,
         padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: Column(
-            children:
-            [
-              DateTimePicker(
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',// default is not looping
-                initialValue: DateTime(this.palestra.firstDate.year, this.palestra.firstDate.month,
-                    this.palestra.firstDate.day, this.palestra.firstDate.hour, this.palestra.firstDate.min).toString(),
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
+        child: Column(children: [
+          DateTimePicker(
+            type: DateTimePickerType.dateTimeSeparate,
+            dateMask: 'd MMM, yyyy', // default is not looping
+            initialValue: DateTime(
+                    this.palestra.firstDate.year,
+                    this.palestra.firstDate.month,
+                    this.palestra.firstDate.day,
+                    this.palestra.firstDate.hour,
+                    this.palestra.firstDate.min)
+                .toString(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2100),
 
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: 'Hour',
-                onChanged: (date) => _firstDateTime = DateTime.parse(date),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              DateTimePicker(
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',// default is not looping
-                initialValue: DateTime(this.palestra.secondDate.year, this.palestra.secondDate.month,
-                    this.palestra.secondDate.day, this.palestra.secondDate.hour, this.palestra.secondDate.min).toString(),
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
+            icon: Icon(Icons.event),
+            dateLabelText: 'Date',
+            timeLabelText: 'Hour',
+            onChanged: (date) => _firstDateTime = DateTime.parse(date),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          DateTimePicker(
+            type: DateTimePickerType.dateTimeSeparate,
+            dateMask: 'd MMM, yyyy', // default is not looping
+            initialValue: DateTime(
+                    this.palestra.secondDate.year,
+                    this.palestra.secondDate.month,
+                    this.palestra.secondDate.day,
+                    this.palestra.secondDate.hour,
+                    this.palestra.secondDate.min)
+                .toString(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2100),
 
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: 'Hour',
-                onChanged: (date) => _secondDateTime = DateTime.parse(date),
-              )
-            ]
-        )
-    );
+            icon: Icon(Icons.event),
+            dateLabelText: 'Date',
+            timeLabelText: 'Hour',
+            onChanged: (date) => _secondDateTime = DateTime.parse(date),
+          )
+        ]));
 
     Container nomeField = Container(
       height: 50,
@@ -202,26 +217,46 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           borderRadius: BorderRadius.all(Radius.circular(150)),
         ),
         onPressed: () {
-          if(_firstDateTime == null) _firstDateTime= DateTime(this.palestra.firstDate.year, this.palestra.firstDate.month,
-            this.palestra.firstDate.day, this.palestra.firstDate.hour, this.palestra.firstDate.min);
-          if(_secondDateTime == null) _secondDateTime= DateTime(this.palestra.secondDate.year, this.palestra.secondDate.month,
-            this.palestra.secondDate.day, this.palestra.secondDate.hour, this.palestra.secondDate.min);
-          if (verifyDates(_firstDateTime, _secondDateTime) && nameController.text != "" && locationController.text != "") {
-            this.database.editPalestra(this.palestra, nameController.text,
-            new Date(_firstDateTime.year, _firstDateTime.month,
-              _firstDateTime.day, _firstDateTime.hour,
-              _firstDateTime.minute),
-            new Date(_secondDateTime.year, _secondDateTime.month,
-            _secondDateTime.day, _secondDateTime.hour,
-            _secondDateTime.minute),
-          locationController.text);
+          if (_firstDateTime == null)
+            _firstDateTime = DateTime(
+                this.palestra.firstDate.year,
+                this.palestra.firstDate.month,
+                this.palestra.firstDate.day,
+                this.palestra.firstDate.hour,
+                this.palestra.firstDate.min);
+          if (_secondDateTime == null)
+            _secondDateTime = DateTime(
+                this.palestra.secondDate.year,
+                this.palestra.secondDate.month,
+                this.palestra.secondDate.day,
+                this.palestra.secondDate.hour,
+                this.palestra.secondDate.min);
+          if (verifyDates(_firstDateTime, _secondDateTime) &&
+              nameController.text != "" &&
+              locationController.text != "") {
+            this.database.editPalestra(
+                this.palestra,
+                nameController.text,
+                new Date(
+                    _firstDateTime.year,
+                    _firstDateTime.month,
+                    _firstDateTime.day,
+                    _firstDateTime.hour,
+                    _firstDateTime.minute),
+                new Date(
+                    _secondDateTime.year,
+                    _secondDateTime.month,
+                    _secondDateTime.day,
+                    _secondDateTime.hour,
+                    _secondDateTime.minute),
+                locationController.text);
 
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      MainPageAdmin(this.user, this.database)));
-          } else{
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        MainPageAdmin(this.user, this.database)));
+          } else {
             showAlertDialog(context);
           }
         },
@@ -281,20 +316,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            MainPageAdmin(this.user, this.database)),
+                        builder: (context) => SanitizationPage(
+                            this.palestra, this.user, this.database)),
                   );
                 },
               ),
             ),
-            Container(
+/*             Container(
               child: Image.asset(
                 'images/logo.png',
                 fit: BoxFit.contain,
                 height: 55,
               ),
               margin: EdgeInsets.all(10),
-            ),
+            ), */
           ],
         ),
       ),
@@ -310,7 +345,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           locationField,
           SizedBox(
-            height:40,
+            height: 40,
           ),
           datePicker,
           SizedBox(
