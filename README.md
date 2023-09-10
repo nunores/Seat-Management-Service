@@ -1,8 +1,7 @@
-# openCX-SMS Development Report
+# FEUP-ESOF (Engenharia de Software)
+## openCX - Seat Management Service (SMS)
 
-Welcome to the documentation pages of the Seat Management Service of **openCX**!
-
-You can find here detailed about the (sub)product, hereby mentioned as module, from a high-level vision to low-level implementation decisions, a kind of Software Development Report (see [template](https://github.com/softeng-feup/open-cx/blob/master/docs/templates/Development-Report.md)), organized by discipline (as of RUP):
+In this project we developed a mobile application with Flutter, using the SCRUM project management methodology. The purpose of project was to contribute to the openCX conference solutions in a Covid-19-like environment where social distancing is highly valued and to learn more insight about agile development.
 
 * Business modeling
   * [Product Vision](#Product-Vision)
@@ -20,11 +19,7 @@ You can find here detailed about the (sub)product, hereby mentioned as module, f
 * [Configuration and change management](#Configuration-and-change-management)
 * [Project management](#Project-management)
 
-So far, contributions are exclusively made by the initial team, but we hope to open them to the community, in all areas and topics: requirements, technologies, development, experimentation, testing, etc.
-
-Please contact us!
-
-Thank you!
+## Members
 
 Inês Quarteu (up201806279) <br/>
 Francisca Almeida (up201806398) <br/>
@@ -392,15 +387,3 @@ Our project is organized in an MVC-like structure. The Model package contains co
 The only thing needed to run the project is a smartphone. The user interacts with the application directly by touching specific buttons whenever they are prompted. Since we have some handling of the user's inputs, we called it "hidden processing", as these are changes in the database, prompts for the user at an adequate time, alert dialogs on invalid inputs, and all other unpredictable actions that need to be taken in consideration.
 
 The technology used is Flutter, a Dart framework that allows the app to run both on Android and iOS operating systems.
-
-
----
-## Test
-
----
-## Configuration and change management
-
-## Project management
-
-
-## Evolution - contributions to open-cx
