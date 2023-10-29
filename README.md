@@ -13,11 +13,6 @@ In this project we developed a mobile application with Flutter, using the SCRUM 
 * Architecture and Design
   * [Logical architecture](#Logical-architecture)
   * [Physical architecture](#Physical-architecture)
-  * [Prototype](#Prototype)
-* [Implementation](#Implementation)
-* [Test](#Test)
-* [Configuration and change management](#Configuration-and-change-management)
-* [Project management](#Project-management)
 
 ## Members
 
