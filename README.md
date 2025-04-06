@@ -1,7 +1,17 @@
-# FEUP-ESOF (Engenharia de Software)
-## openCX - Seat Management Service (SMS)
+# Seat Management Service
 
-In this project we developed a mobile application with Flutter, using the SCRUM project management methodology. The purpose of project was to contribute to the openCX conference solutions in a Covid-19-like environment where social distancing is highly valued and to learn more insight about agile development.
+​The Seat Management Service (SMS) project is a mobile application developed using **Flutter**, developed with the **SCRUM methodology** in mind, and aimed at facilitating safe and socially distanced seating arrangements for conferences. The application allows attendees to reserve seats while automatically ensuring adjacent seats are marked unavailable to maintain appropriate distancing, improving safety during physical events.
+
+This project was developed as part of the **Software Engineering** ([ESOF](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=272705)) course at [FEUP](http://fe.up.pt/) with the dual goal of contributing to the **openCX** suite and deepening our understandingof agile development pratices.
+
+🛠️ Tech Stack
+Language: Dart
+
+Framework: Flutter
+
+Development Methodology: SCRUM
+
+Design Tools: Figma (for UI mockups)
 
 * Business modeling
   * [Product Vision](#Product-Vision)
@@ -13,13 +23,6 @@ In this project we developed a mobile application with Flutter, using the SCRUM 
 * Architecture and Design
   * [Logical architecture](#Logical-architecture)
   * [Physical architecture](#Physical-architecture)
-
-## Members
-
-Inês Quarteu (up201806279) <br/>
-Francisca Almeida (up201806398) <br/>
-João Gonçalves (up201806796) <br/>
-Nuno Resende (up201806825) <br/>
 
 ---
 
@@ -382,3 +385,15 @@ Our project is organized in an MVC-like structure. The Model package contains co
 The only thing needed to run the project is a smartphone. The user interacts with the application directly by touching specific buttons whenever they are prompted. Since we have some handling of the user's inputs, we called it "hidden processing", as these are changes in the database, prompts for the user at an adequate time, alert dialogs on invalid inputs, and all other unpredictable actions that need to be taken in consideration.
 
 The technology used is Flutter, a Dart framework that allows the app to run both on Android and iOS operating systems.
+
+
+
+## Contributors
+
+Nuno Resende
+
+João Gonçalves
+
+Inês Quarteu
+
+Francisca Almeida
